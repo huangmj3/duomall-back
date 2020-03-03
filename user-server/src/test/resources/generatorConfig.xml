@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<!-- 
+	Mybatis生成Mapper配置文件
+	1，cmd切换至项目根目录
+	2，执行：mvn mybatis-generator:generate -Dmybatis.generator.configurationFile=src/main/resources/generatorConfig.xml
+ -->
+<generatorConfiguration>
+
+	<classPathEntry
+		location="/Users/wb/.m2/repository/mysql/mysql-connector-java/5.1.35/mysql-connector-java-5.1.35.jar" />
+
+	<context id="DB2Tables" targetRuntime="MyBatis3">
+		<property name="beginningDelimiter" value="`" />
+		<property name="endingDelimiter" value="`" />
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+		 <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin" />
+
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://10.46.67.89:3307/crm_service" userId="wosai"
+			password="tmdQvQlvKEqP5wvuA1g">
+		</jdbcConnection>
+
+
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<javaModelGenerator targetPackage="com.wosai.sales.migration.entity"
+			targetProject="src/main/java">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+		<sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="com.wosai.sales.migration.mapper" targetProject="src/main/java">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+
+		<table tableName="active_log" domainObjectName="ActiveLog" delimitIdentifiers="true">
+			<!--<generatedKey column="id" sqlStatement="MYSQL" identity="true" type="post"/>-->
+		</table>
+		
+    </context>
+
+		
+
+</generatorConfiguration>
