@@ -71,6 +71,12 @@
             <artifactId>apollo-client</artifactId>
             <version>1.1.0</version>
         </dependency>
+        <!--     user的api包依赖       -->
+<!--        <dependency>-->
+<!--            <groupId>com.huangmaojie.duomall</groupId>-->
+<!--            <artifactId>user-api</artifactId>-->
+<!--            <version>0.0.1</version>-->
+<!--        </dependency>-->
     </dependencies>
 
     <dependencyManagement>
