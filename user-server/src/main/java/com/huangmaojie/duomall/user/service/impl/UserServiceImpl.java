@@ -1,7 +1,8 @@
-package com.huangmaojie.duomall.user.service;
+package com.huangmaojie.duomall.user.service.impl;
 
 import com.huangmaojie.duomall.user.entity.User;
 import com.huangmaojie.duomall.user.mapper.UserMapper;
+import com.huangmaojie.duomall.user.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
