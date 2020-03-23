@@ -15,8 +15,11 @@
 	<version>0.0.1-SNAPSHOT</version>
 
 	<modules>
+		<module>eureka</module>
 		<module>user-server</module>
-		<module>user-api</module>
+		<module>cart-server</module>
+		<module>order-server</module>
+		<module>commodity-server</module>
 	</modules>
 
 	<properties>
@@ -41,6 +44,18 @@
 			</exclusions>
 		</dependency>
 	</dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>Finchley.SR1</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 	<build>
 		<plugins>
