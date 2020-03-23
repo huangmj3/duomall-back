@@ -1,5 +1,5 @@
 server:
-  port: 8080 #运行端口号
+  port: 8801 #运行端口号
 spring:
   application:
     name: duomall-user-server #服务名称
@@ -8,9 +8,9 @@ spring:
     # 连接池类型，druid连接池springboot暂无法默认支持，需要自己配置bean
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/duomall?serverTimezone=Hongkong
+    url: jdbc:mysql://47.94.204.116:3306/duomall?serverTimezone=Hongkong
     username: root
-    password: aa1164401654
+    password: root
     # druid相关配置
     druid:
       # 初始化时建立物理连接的个数。
@@ -53,9 +53,34 @@ mybatis:
   type-aliases-package: com.huangmaojie.duomall.user.entity
   config-location: classpath:mybatis-config.xml
 eureka:
+  instance:
+    hostname: user-server
+    #    prefer-ip-address: true   #以IP地址注册到服务中心，相互注册使用IP地址
+    # 表示eureka client间隔多久去拉取服务注册信息，默认为30秒，如果要迅速获取服务注册状态，可以缩小该值
+    lease-renewal-interval-in-seconds: 5
+    # 表示eureka server至上一次收到client的心跳之后，等待下一次心跳的超时时间，在这个时间内若没收到下一次心跳，则将移除该instance。
+    # 默认为90秒
+    # 如果该值太大，则很可能将流量转发过去的时候，该instance已经不存活了。
+    # 如果该值设置太小了，则instance则很可能因为临时的网络抖动而被摘除掉。
+    # 该值至少应该大于 leaseRenewalIntervalInSeconds
+    lease-expiration-duration-in-seconds: 10
   client:
-    register-with-eureka: on #注册到Eureka的注册中心
-    fetch-registry: on #获取注册实例列表
     service-url:
-      defaultZone: http://huangmaojie:123456@localhost:8001/eureka/
-
+#      defaultZone: http://huangmaojie:123456@eureka1.server.com:8701/eureka/,http://huangmaojie:123456@eureka2.server.com:8702/eureka/,http://huangmaojie:123456@eureka3.server.com:8703/eureka/
+#      defaultZone: http://huangmaojie:123456@eureka1.server
+      defaultZone: http://eureka1.server.com:8701/eureka/,http://eureka2.server.com:8702/eureka/,http://eureka3.server.com:8703/eureka/
+#RoundRobinRule：系统默认的规则，通过简单的轮询服务列表来选择服务器，其他的规则在很多情况下，仍然使用RoundRobinRule
+duomall-commodity-server: #对应的服务client的name
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+feign:
+  hystrix:
+    enabled: true
+zuul:
+  routes:
+    eureka-ribbon: #对应服务名称,可以自定义（最好保持一致）
+      path: /commodity/*
+      serviceId: duomall-commodity-server #对应服务名称
+    eureka-feign:
+      path: /order/*
+      serviceId: duomall-order-server #对应服务名称
