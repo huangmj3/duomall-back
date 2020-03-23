@@ -8,5 +8,5 @@ eureka:
     register-with-eureka: false #指定是否要注册到注册中心（注册中心不需要开启）
     fetch-registry: false #指定是否要从注册中心获取服务（注册中心不需要开启）
     service-url:
-      defaultZone: http://eureka1.server.com:${server.port}}/eureka/
+      defaultZone: http://127.0.0.1:${server.port}/eureka/
 
