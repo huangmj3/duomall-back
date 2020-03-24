@@ -72,6 +72,11 @@
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
             <version>2.2.1.RELEASE</version>
         </dependency>
+<!--        &lt;!&ndash;    feign依赖    &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.cloud</groupId>-->
+<!--            <artifactId>spring-cloud-starter-openfeign</artifactId>-->
+<!--        </dependency>-->
     </dependencies>
 
     <build>
@@ -111,11 +116,11 @@
             <plugin>
                 <groupId>com.spotify</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
-                <version>1.0.0</version>
+                <version>0.4.13</version>
                 <configuration>
                     <imageName>${project.artifactId}:${project.version}</imageName>
                     <baseImage>jdk1.8</baseImage>
-                    <entryPoint>["java", "-jar", "${project.build.finalName}.jar"]</entryPoint>
+                    <entryPoint>["java", "-jar","/${project.build.finalName}.jar"]</entryPoint>
                     <resources>
                         <resource>
                             <targetPath>/</targetPath>
