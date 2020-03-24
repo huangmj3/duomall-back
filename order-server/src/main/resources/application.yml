@@ -1,8 +1,8 @@
 server:
-  port: 8801 #运行端口号
+  port: 8803 #运行端口号
 spring:
   application:
-    name: duomall-oder-server #服务名称
+    name: duomall-order-server #服务名称
   datasource:
     name: duomall-user
     # 连接池类型，druid连接池springboot暂无法默认支持，需要自己配置bean
@@ -54,7 +54,7 @@ mybatis:
   config-location: classpath:mybatis-config.xml
 eureka:
   instance:
-    hostname: user-server
+    hostname: order-server
     #    prefer-ip-address: true   #以IP地址注册到服务中心，相互注册使用IP地址
     # 表示eureka client间隔多久去拉取服务注册信息，默认为30秒，如果要迅速获取服务注册状态，可以缩小该值
     lease-renewal-interval-in-seconds: 5
@@ -64,23 +64,13 @@ eureka:
     # 如果该值设置太小了，则instance则很可能因为临时的网络抖动而被摘除掉。
     # 该值至少应该大于 leaseRenewalIntervalInSeconds
     lease-expiration-duration-in-seconds: 10
+    #    设置使用ip
+    prefer-ip-address: true
+  #    设置外网IP号
+  #    ip-address: 47.94.204.116
+  #    设置外网端口号
+  #    non-secure-port: 8701
   client:
     service-url:
-#      defaultZone: http://huangmaojie:123456@eureka1.server.com:8701/eureka/,http://huangmaojie:123456@eureka2.server.com:8702/eureka/,http://huangmaojie:123456@eureka3.server.com:8703/eureka/
-#      defaultZone: http://huangmaojie:123456@eureka1.server
-      defaultZone: http://eureka1.server.com:8701/eureka/,http://eureka2.server.com:8702/eureka/,http://eureka3.server.com:8703/eureka/
-#RoundRobinRule：系统默认的规则，通过简单的轮询服务列表来选择服务器，其他的规则在很多情况下，仍然使用RoundRobinRule
-duomall-commodity-server: #对应的服务client的name
-  ribbon:
-    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
-feign:
-  hystrix:
-    enabled: true
-zuul:
-  routes:
-    eureka-ribbon: #对应服务名称,可以自定义（最好保持一致）
-      path: /commodity/*
-      serviceId: duomall-commodity-server #对应服务名称
-    eureka-feign:
-      path: /order/*
-      serviceId: duomall-order-server #对应服务名称
+      defaultZone: http://127.0.0.1:8705/eureka/
+

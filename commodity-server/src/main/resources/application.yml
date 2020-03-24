@@ -54,7 +54,7 @@ mybatis:
   config-location: classpath:mybatis-config.xml
 eureka:
   instance:
-    hostname: user-server
+    hostname: commodity-server
     #    prefer-ip-address: true   #以IP地址注册到服务中心，相互注册使用IP地址
     # 表示eureka client间隔多久去拉取服务注册信息，默认为30秒，如果要迅速获取服务注册状态，可以缩小该值
     lease-renewal-interval-in-seconds: 5

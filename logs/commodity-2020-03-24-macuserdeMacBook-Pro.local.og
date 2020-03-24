@@ -1,0 +1,48 @@
+16:18:00.486 logback [main] INFO  c.h.duomall.commodity.Application - No active profile set, falling back to default profiles: default
+16:18:00.825 logback [main] WARN  o.m.s.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.huangmaojie.duomall.user.mapper]' package. Please check your configuration.
+16:18:00.913 logback [main] WARN  o.m.s.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.huangmaojie.duomall.commodity]' package. Please check your configuration.
+16:18:01.096 logback [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=e933ce6c-1dd4-3c64-a9df-443d2fe3919f
+16:18:01.143 logback [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'com.alibaba.druid.spring.boot.autoconfigure.stat.DruidSpringAopConfiguration' of type [com.alibaba.druid.spring.boot.autoconfigure.stat.DruidSpringAopConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+16:18:01.171 logback [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+16:18:01.192 logback [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'spring.datasource.druid-com.alibaba.druid.spring.boot.autoconfigure.properties.DruidStatProperties' of type [com.alibaba.druid.spring.boot.autoconfigure.properties.DruidStatProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+16:18:01.195 logback [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'advisor' of type [org.springframework.aop.support.RegexpMethodPointcutAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+16:18:01.329 logback [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8802 (http)
+16:18:01.334 logback [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8802"]
+16:18:01.335 logback [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+16:18:01.335 logback [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.30]
+16:18:01.410 logback [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+16:18:01.411 logback [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 907 ms
+16:18:01.462 logback [main] WARN  c.n.c.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+16:18:01.462 logback [main] INFO  c.n.c.sources.URLConfigurationSource - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+16:18:01.465 logback [main] WARN  c.n.c.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+16:18:01.465 logback [main] INFO  c.n.c.sources.URLConfigurationSource - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+16:18:01.577 logback [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+16:18:01.738 logback [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+16:18:05.163 logback [main] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+16:18:05.502 logback [main] WARN  o.s.c.l.c.BlockingLoadBalancerClientAutoConfiguration$BlockingLoadBalancerClientRibbonWarnLogger - You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+16:18:05.593 logback [main] INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+16:18:05.621 logback [main] INFO  c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+16:18:05.670 logback [main] INFO  c.n.d.p.DiscoveryJerseyProvider - Using JSON encoding codec LegacyJacksonJson
+16:18:05.670 logback [main] INFO  c.n.d.p.DiscoveryJerseyProvider - Using JSON decoding codec LegacyJacksonJson
+16:18:05.768 logback [main] INFO  c.n.d.p.DiscoveryJerseyProvider - Using XML encoding codec XStreamXml
+16:18:05.768 logback [main] INFO  c.n.d.p.DiscoveryJerseyProvider - Using XML decoding codec XStreamXml
+16:18:05.886 logback [main] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+16:18:05.898 logback [main] INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+16:18:05.898 logback [main] INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+16:18:05.898 logback [main] INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+16:18:05.898 logback [main] INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+16:18:05.898 logback [main] INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+16:18:05.898 logback [main] INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: true
+16:18:05.898 logback [main] INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+16:18:06.005 logback [main] INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+16:18:06.008 logback [main] INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 5
+16:18:06.010 logback [main] INFO  c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+16:18:06.013 logback [main] INFO  c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1585037886012 with initial instances count: 1
+16:18:06.015 logback [main] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application DUOMALL-COMMODITY-SERVER with eureka with status UP
+16:18:06.016 logback [main] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1585037886016, current=UP, previous=STARTING]
+16:18:06.017 logback [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_DUOMALL-COMMODITY-SERVER/192.168.0.102:duomall-commodity-server:8802: registering service...
+16:18:06.029 logback [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8802"]
+16:18:06.057 logback [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_DUOMALL-COMMODITY-SERVER/192.168.0.102:duomall-commodity-server:8802 - registration status: 204
+16:18:06.062 logback [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8802 (http) with context path ''
+16:18:06.063 logback [main] INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8802
+16:18:06.067 logback [main] INFO  c.h.duomall.commodity.Application - Started Application in 6.279 seconds (JVM running for 6.871)

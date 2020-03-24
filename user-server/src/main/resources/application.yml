@@ -1,5 +1,5 @@
 server:
-  port: 8801 #运行端口号
+  port: 8804 #运行端口号
 spring:
   application:
     name: duomall-user-server #服务名称
