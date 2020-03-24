@@ -1,5 +1,6 @@
 package com.huangmaojie.duomall.user;
 
+import lombok.extern.slf4j.Slf4j;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,6 +10,7 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
  * @author huangmaojie
  * @date 2020.2.26
  */
+@Slf4j
 @EnableEurekaClient
 @SpringBootApplication
 @MapperScan("com.huangmaojie.duomall.user.mapper")
@@ -17,6 +19,7 @@ public class Application {
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
         System.out.println("---------------------END---------------------");
+        log.info("111");
     }
 
 }

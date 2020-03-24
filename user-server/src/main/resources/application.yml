@@ -64,13 +64,13 @@ eureka:
     # 如果该值设置太小了，则instance则很可能因为临时的网络抖动而被摘除掉。
     # 该值至少应该大于 leaseRenewalIntervalInSeconds
     lease-expiration-duration-in-seconds: 10
-    #设置使用ip
+#    设置使用ip
     prefer-ip-address: true
-    #设置外网IP号
-    ip-address: 47.94.204.116
-    #设置外网端口号
-    non-secure-port: 8701
+#    设置外网IP号
+#    ip-address: 47.94.204.116
+#    设置外网端口号
+#    non-secure-port: 8701
   client:
     service-url:
-      defaultZone: http://127.0.0.1:8701/eureka/
+      defaultZone: http://127.0.0.1:8705/eureka/
 

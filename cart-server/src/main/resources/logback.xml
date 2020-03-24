@@ -16,7 +16,7 @@
     <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 <!--            <fileNamePattern>${logDir:-logs}/sales-system-migration-%d{yyyy-MM-dd}-${HOSTNAME}.%i.log</fileNamePattern>-->
-            <fileNamePattern>${logDir:-logs}/user-%d{yyyy-MM-dd}-${HOSTNAME}.og</fileNamePattern>
+            <fileNamePattern>${logDir:-logs}/cart-%d{yyyy-MM-dd}-${HOSTNAME}.og</fileNamePattern>
         </rollingPolicy>
         <encoder>
             <pattern>%d{HH:mm:ss.SSS} %contextName [%thread] %-5level %logger{36} - %msg%n</pattern>

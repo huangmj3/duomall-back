@@ -2,7 +2,7 @@ server:
   port: 8801 #运行端口号
 spring:
   application:
-    name: duomall-user-server #服务名称
+    name: duomall-oder-server #服务名称
   datasource:
     name: duomall-user
     # 连接池类型，druid连接池springboot暂无法默认支持，需要自己配置bean
