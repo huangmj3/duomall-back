@@ -2,12 +2,11 @@ package com.huangmaojie.duomall.user.controller;
 
 import com.huangmaojie.duomall.user.client.LabelClient;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
+ * 测试用接口
+ *
  * @author huangmaojie
  * @date 2020/3/24
  */
@@ -20,9 +19,9 @@ public class LabelController {
     private LabelClient labelClient;
 
     @RequestMapping(method = RequestMethod.GET)
-    public String findAll(){
+    public String findAll(@RequestParam(value = "param") String param){
         String a = labelClient.findAll();
         System.out.println(1);
-        return "a";
+        return param;
     }
 }

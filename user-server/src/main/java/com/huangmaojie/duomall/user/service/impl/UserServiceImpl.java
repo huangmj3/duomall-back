@@ -1,14 +1,18 @@
 package com.huangmaojie.duomall.user.service.impl;
 
 import com.huangmaojie.duomall.user.entity.User;
+import com.huangmaojie.duomall.user.entity.UserExample;
 import com.huangmaojie.duomall.user.mapper.UserMapper;
 import com.huangmaojie.duomall.user.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import javax.validation.constraints.NotEmpty;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * @author huangmaojie
@@ -21,9 +25,17 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper userMapper;
 
-//    @Autowired
-//    private SqlSessionTemplate duomallSqlSessionTemplate;
-
+    @Override
+    public User getUserByCellphone(String cellphone) {
+        UserExample userExample = new UserExample();
+        userExample.createCriteria()
+                .andCellphoneEqualTo(cellphone);
+        List<User> users = userMapper.selectByExample(userExample);
+        if(CollectionUtils.isEmpty(users)){
+            return null;
+        }
+        return users.get(0);
+    }
 
     /**
      * 增加普通用户
@@ -31,7 +43,6 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public void addNormalUser(User user) {
-//        User user = new User();
         userMapper.insert(user);
     }
 
@@ -84,6 +95,20 @@ public class UserServiceImpl implements UserService {
     @Override
     public void getUserByKey(@NotEmpty String userId) {
 
+    }
+
+    @Override
+    public boolean loginVerification(@NotEmpty String cellphone,@NotEmpty String loginPassword) {
+        UserExample userExample = new UserExample();
+        userExample.createCriteria()
+                .andCellphoneEqualTo(cellphone)
+                .andLoginPasswordEqualTo(loginPassword);
+        List<User> users = userMapper.selectByExample(userExample);
+        User user = new User();
+        if(!CollectionUtils.isEmpty(users)){
+            return false;
+        }
+        return true;
     }
 
     /**

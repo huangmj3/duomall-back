@@ -23,7 +23,7 @@ public class TestUserService {
     @Test
     public void testAddNormalUser() {
         User user = new User();
-        user.setId("normalUser11");
+        user.setId("normalUser11q1");
         user.setCellphone("18292493938");
         user.setLoginPassword("123456");
         user.setPaymentPassword("123456");

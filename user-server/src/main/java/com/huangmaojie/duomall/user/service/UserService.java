@@ -47,6 +47,19 @@ public interface UserService {
      */
     void getUserByKey(@NotEmpty String userId);
     /**
+     * 根据手机号查找用户
+     * @param cellphone 手机号
+     * @return 根据手机号查找到的用户
+     */
+    User getUserByCellphone(String cellphone);
+    /**
+     * 登录校验
+     * @param cellphone 手机号
+     * @param loginPassword 登录密码
+     * @return 验证结果，用户密码正确返回true，否则返回false
+     */
+    boolean loginVerification(@NotEmpty String cellphone,@NotEmpty String loginPassword);
+    /**
      * 根据用户名和其他用户信息查找用户
      * @param userId 用户名
      * @param user 用户信息
