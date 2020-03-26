@@ -18,10 +18,10 @@ public class LabelController {
     @Autowired
     private LabelClient labelClient;
 
-    @RequestMapping(method = RequestMethod.GET)
-    public String findAll(@RequestParam(value = "param") String param){
+    @RequestMapping(value = "/test", method = RequestMethod.GET)
+    public String findAll(@RequestParam(value = "param", defaultValue = "11") String param) {
         String a = labelClient.findAll();
         System.out.println(1);
-        return param;
+        return a;
     }
 }

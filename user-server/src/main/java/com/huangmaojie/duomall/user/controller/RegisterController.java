@@ -24,7 +24,7 @@ public class RegisterController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/verification", method = RequestMethod.POST)
+    @RequestMapping(value = "/cellphoneVerification", method = RequestMethod.POST)
     public Result verification(@RequestBody User user) {
         User userByCellphone = userService.getUserByCellphone(user.getCellphone());
         if (userByCellphone == null) {

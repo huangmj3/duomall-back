@@ -1,0 +1,14 @@
+00:30:00.271 logback [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+00:30:00.294 logback [SpringContextShutdownHook] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application DUOMALL-USER-SERVER with eureka with status DOWN
+00:30:00.295 logback [SpringContextShutdownHook] WARN  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1585240200295, current=DOWN, previous=UP]
+00:30:00.297 logback [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_DUOMALL-USER-SERVER/192.168.0.100:duomall-user-server:8804: registering service...
+00:30:00.313 logback [DiscoveryClient-HeartbeatExecutor-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_DUOMALL-USER-SERVER/192.168.0.100:duomall-user-server:8804 - Re-registering apps/DUOMALL-USER-SERVER
+00:30:00.313 logback [DiscoveryClient-HeartbeatExecutor-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_DUOMALL-USER-SERVER/192.168.0.100:duomall-user-server:8804: registering service...
+00:30:00.318 logback [SpringContextShutdownHook] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+00:30:00.337 logback [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_DUOMALL-USER-SERVER/192.168.0.100:duomall-user-server:8804 - registration status: 204
+00:30:00.344 logback [DiscoveryClient-HeartbeatExecutor-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_DUOMALL-USER-SERVER/192.168.0.100:duomall-user-server:8804 - registration status: 204
+00:30:00.352 logback [SpringContextShutdownHook] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+00:30:00.365 logback [SpringContextShutdownHook] INFO  c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+00:30:03.369 logback [SpringContextShutdownHook] INFO  c.netflix.discovery.DiscoveryClient - Unregistering ...
+00:30:03.378 logback [SpringContextShutdownHook] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_DUOMALL-USER-SERVER/192.168.0.100:duomall-user-server:8804 - deregister  status: 200
+00:30:03.415 logback [SpringContextShutdownHook] INFO  c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient

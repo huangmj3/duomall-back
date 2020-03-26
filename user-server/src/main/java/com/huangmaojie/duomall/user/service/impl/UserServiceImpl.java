@@ -1,5 +1,6 @@
 package com.huangmaojie.duomall.user.service.impl;
 
+import com.huangmaojie.duomall.user.entity.Constraints;
 import com.huangmaojie.duomall.user.entity.User;
 import com.huangmaojie.duomall.user.entity.UserExample;
 import com.huangmaojie.duomall.user.mapper.UserMapper;
@@ -12,7 +13,9 @@ import org.springframework.util.CollectionUtils;
 
 import javax.validation.constraints.NotEmpty;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author huangmaojie
@@ -98,17 +101,21 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean loginVerification(@NotEmpty String cellphone,@NotEmpty String loginPassword) {
+    public Map loginVerification(@NotEmpty String cellphone, @NotEmpty String loginPassword) {
+        Map result = new HashMap<String,Object>();
         UserExample userExample = new UserExample();
         userExample.createCriteria()
                 .andCellphoneEqualTo(cellphone)
                 .andLoginPasswordEqualTo(loginPassword);
         List<User> users = userMapper.selectByExample(userExample);
         User user = new User();
-        if(!CollectionUtils.isEmpty(users)){
-            return false;
+        if(CollectionUtils.isEmpty(users)){
+            result.put(Constraints.MATCHED,false);
+        }else {
+            result.put(Constraints.MATCHED,true);
+            result.put(Constraints.USER_ID,users.get(0).getId());
         }
-        return true;
+        return result;
     }
 
     /**

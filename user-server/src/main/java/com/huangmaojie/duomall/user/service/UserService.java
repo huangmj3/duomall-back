@@ -4,6 +4,7 @@ import com.huangmaojie.duomall.user.entity.User;
 import org.springframework.validation.annotation.Validated;
 
 import javax.validation.constraints.NotEmpty;
+import java.util.Map;
 
 /**
  * @author huangmaojie
@@ -56,9 +57,9 @@ public interface UserService {
      * 登录校验
      * @param cellphone 手机号
      * @param loginPassword 登录密码
-     * @return 验证结果，用户密码正确返回true，否则返回false
+     * @return 验证结果，用户密码正确返回true以及该用户id，否则返回false,
      */
-    boolean loginVerification(@NotEmpty String cellphone,@NotEmpty String loginPassword);
+    Map loginVerification(@NotEmpty String cellphone, @NotEmpty String loginPassword);
     /**
      * 根据用户名和其他用户信息查找用户
      * @param userId 用户名
