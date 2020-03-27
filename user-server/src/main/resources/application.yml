@@ -75,10 +75,18 @@ eureka:
 #    non-secure-port: 8701
   client:
     service-url:
-#      defaultZone: http://47.94.204.116:8705/eureka/
-      defaultZone: http://localhost:8705/eureka/
+      defaultZone: http://47.94.204.116:8705/eureka/
+#      defaultZone: http://localhost:8705/eureka/
 jwt:
   config:
     key: huangmj
     expire_date: 36000000
+    #pagehelper分页插件配置
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params:
+   count: countSql
+
 

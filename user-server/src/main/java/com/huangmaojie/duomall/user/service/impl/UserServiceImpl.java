@@ -1,5 +1,6 @@
 package com.huangmaojie.duomall.user.service.impl;
 
+import com.github.pagehelper.PageInfo;
 import com.huangmaojie.duomall.user.entity.Constraints;
 import com.huangmaojie.duomall.user.entity.User;
 import com.huangmaojie.duomall.user.entity.UserExample;
@@ -124,5 +125,13 @@ public class UserServiceImpl implements UserService {
     @Override
     public void getUserByInformation(@NotEmpty String userId, User user) {
 
+    }
+
+    @Override
+    public PageInfo<User>  getAllUsers() {
+        UserExample userExample = new UserExample();
+        userExample.createCriteria();
+        PageInfo<User> users = new PageInfo<>(userMapper.selectByExample(userExample));
+        return users;
     }
 }
