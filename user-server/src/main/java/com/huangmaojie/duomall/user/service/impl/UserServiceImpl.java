@@ -109,7 +109,6 @@ public class UserServiceImpl implements UserService {
                 .andCellphoneEqualTo(cellphone)
                 .andLoginPasswordEqualTo(loginPassword);
         List<User> users = userMapper.selectByExample(userExample);
-        User user = new User();
         if(CollectionUtils.isEmpty(users)){
             result.put(Constraints.MATCHED,false);
         }else {

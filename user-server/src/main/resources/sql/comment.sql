@@ -4,6 +4,7 @@ create table if not exists comment
     `id`            varchar(36) not null comment '主键id',
     `target_id`     varchar(36) not null comment '目标id',
     `type`          int         not null comment '评价类型,0-商品评论,1-多级评论',
+    `tag`           varchar(36) comment '评价标签',
     `commentator`   varchar(36) not null comment '评论人id',
     `content`       text        not null comment '评价内容',
     `comment_count` bigint      not null comment '评价数',

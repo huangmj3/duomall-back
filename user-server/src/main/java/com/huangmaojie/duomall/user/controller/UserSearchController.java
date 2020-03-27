@@ -24,9 +24,9 @@ public class UserSearchController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/users",method = RequestMethod.GET)
-    public PageInfo<User> findAllUsers( @RequestBody PageInformation page) {
-        PageHelper.startPage(page.getPageNum(),page.getPageSize());
+    @RequestMapping(value = "/all", method = RequestMethod.GET)
+    public PageInfo<User> findAllUsers(@RequestParam int pageNum, @RequestParam int pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
         return userService.getAllUsers();
     }
 }
