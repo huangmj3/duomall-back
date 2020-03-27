@@ -74,4 +74,10 @@ eureka:
     service-url:
 #      defaultZone: http://47.94.204.116:8705/eureka/
       defaultZone: http://localhost:8705/eureka/
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params:
+    count: countSql
 

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE generatorConfiguration
-  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
-  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
-<!-- 
+		PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+		"http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<!--
 	Mybatis生成Mapper配置文件
 	1，cmd切换至项目根目录
 	2，执行：mvn mybatis-generator:generate -Dmybatis.generator.configurationFile=src/main/resources/generatorConfig.xml
@@ -11,49 +11,96 @@
 <generatorConfiguration>
 
 	<classPathEntry
-		location="/Users/macuser/Downloads/mysql-connector-java-8.0.18/mysql-connector-java-8.0.18.jar" />
+			location="/Users/macuser/Downloads/mysql-connector-java-8.0.18/mysql-connector-java-8.0.18.jar"/>
 
 	<context id="DB2Tables" targetRuntime="MyBatis3">
-		<property name="beginningDelimiter" value="`" />
-		<property name="endingDelimiter" value="`" />
-		<plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
-<!--		 <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin" />-->
+		<property name="beginningDelimiter" value="`"/>
+		<property name="endingDelimiter" value="`"/>
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+		<!--		 <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin" />-->
 
 		<jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
-			connectionURL="jdbc:mysql://47.94.204.116:3306/duomall"
-			userId="root"
-			password="root">
-			<property name="nullCatalogMeansCurrent" value="true" />
+						connectionURL="jdbc:mysql://47.94.204.116:3306/duomall"
+						userId="root"
+						password="root">
+			<property name="nullCatalogMeansCurrent" value="true"/>
 		</jdbcConnection>
 
 		<javaTypeResolver>
-			<property name="forceBigDecimals" value="false" />
+			<property name="forceBigDecimals" value="false"/>
 		</javaTypeResolver>
 		<!--    生成实体的包名和位置    -->
-		<javaModelGenerator targetPackage="com.huangmaojie.duomall.user.entity"
-			targetProject="src/main/java">
-			<property name="enableSubPackages" value="true" />
-			<property name="trimStrings" value="true" />
+		<javaModelGenerator targetPackage="com.huangmaojie.duomall.goods.entity"
+							targetProject="src/main/java">
+			<property name="enableSubPackages" value="true"/>
+			<property name="trimStrings" value="true"/>
 		</javaModelGenerator>
 		<!--    生成映射文件的包名和位置    -->
 		<sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources">
-			<property name="enableSubPackages" value="true" />
+			<property name="enableSubPackages" value="true"/>
 		</sqlMapGenerator>
 		<!-- 生成mapper的包名和位置-->
 		<javaClientGenerator type="XMLMAPPER"
-			targetPackage="com.huangmaojie.duomall.user.mapper" targetProject="src/main/java" >
-			<property name="enableSubPackages" value="true" />
+							 targetPackage="com.huangmaojie.duomall.goods.mapper" targetProject="src/main/java">
+			<property name="enableSubPackages" value="true"/>
 		</javaClientGenerator>
 
+		<table tableName="cart" domainObjectName="Cart" enableCountByExample="true"
+			   enableDeleteByExample="true" enableSelectByExample="true" enableUpdateByExample="true">
+			<!--<generatedKey column="id" sqlStatement="MYSQL" identity="true" type="post"/>-->
+			<!--	修改类型映射		-->
+			<columnOverride column="status" javaType="Integer"/>
+		</table>
+		<table tableName="comment" domainObjectName="Comment" enableCountByExample="true"
+			   enableDeleteByExample="true" enableSelectByExample="true" enableUpdateByExample="true">
+			<!--<generatedKey column="id" sqlStatement="MYSQL" identity="true" type="post"/>-->
+			<!--	修改类型映射		-->
+			<columnOverride column="status" javaType="Integer"/>
+		</table>
+		<table tableName="comment_details" domainObjectName="CommentDetails" enableCountByExample="true"
+			   enableDeleteByExample="true" enableSelectByExample="true" enableUpdateByExample="true">
+			<!--<generatedKey column="id" sqlStatement="MYSQL" identity="true" type="post"/>-->
+			<!--	修改类型映射		-->
+			<columnOverride column="status" javaType="Integer"/>
+		</table>
+		<table tableName="goods" domainObjectName="Goods" enableCountByExample="true"
+			   enableDeleteByExample="true" enableSelectByExample="true" enableUpdateByExample="true">
+			<!--<generatedKey column="id" sqlStatement="MYSQL" identity="true" type="post"/>-->
+			<!--	修改类型映射		-->
+			<columnOverride column="status" javaType="Integer"/>
+		</table>
+		<table tableName="logistics" domainObjectName="Logistics" enableCountByExample="true"
+			   enableDeleteByExample="true" enableSelectByExample="true" enableUpdateByExample="true">
+			<!--<generatedKey column="id" sqlStatement="MYSQL" identity="true" type="post"/>-->
+			<!--	修改类型映射		-->
+			<columnOverride column="status" javaType="Integer"/>
+		</table>
+		<table tableName="order" domainObjectName="Order" enableCountByExample="true"
+			   enableDeleteByExample="true" enableSelectByExample="true" enableUpdateByExample="true">
+			<!--<generatedKey column="id" sqlStatement="MYSQL" identity="true" type="post"/>-->
+			<!--	修改类型映射		-->
+			<columnOverride column="status" javaType="Integer"/>
+		</table>
+		<table tableName="order_goods" domainObjectName="OrderGoods" enableCountByExample="true"
+			   enableDeleteByExample="true" enableSelectByExample="true" enableUpdateByExample="true">
+			<!--<generatedKey column="id" sqlStatement="MYSQL" identity="true" type="post"/>-->
+			<!--	修改类型映射		-->
+			<columnOverride column="status" javaType="Integer"/>
+		</table>
 		<table tableName="user" domainObjectName="User" enableCountByExample="true"
 			   enableDeleteByExample="true" enableSelectByExample="true" enableUpdateByExample="true">
 			<!--<generatedKey column="id" sqlStatement="MYSQL" identity="true" type="post"/>-->
 			<!--	修改类型映射		-->
 			<columnOverride column="status" javaType="Integer"/>
 		</table>
-		
-    </context>
+		<table tableName="user_address" domainObjectName="UserAddress" enableCountByExample="true"
+			   enableDeleteByExample="true" enableSelectByExample="true" enableUpdateByExample="true">
+			<!--<generatedKey column="id" sqlStatement="MYSQL" identity="true" type="post"/>-->
+			<!--	修改类型映射		-->
+			<columnOverride column="status" javaType="Integer"/>
+		</table>
 
-		
+	</context>
+
 
 </generatorConfiguration>

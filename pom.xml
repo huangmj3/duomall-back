@@ -16,12 +16,11 @@
 
 	<modules>
 		<module>cart-server</module>
-		<module>commodity-server</module>
+		<module>goods-server</module>
 		<module>order-server</module>
 		<module>eureka</module>
 		<module>gateway</module>
 		<module>user-server</module>
-		<module></module>
 	</modules>
 
 	<properties>
