@@ -540,7 +540,7 @@ com.sun.jersey.api.client.ClientHandlerException: java.net.ConnectException: Con
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215)
-	at com.huangmaojie.duomall.commodity.Application.main(Application.java:18)
+	at com.huangmaojie.duomall.goods.Application.main(Application.java:18)
 Caused by: java.net.ConnectException: Connection refused (Connection refused)
 	at java.net.PlainSocketImpl.socketConnect(Native Method)
 	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
@@ -620,7 +620,7 @@ com.netflix.discovery.shared.transport.TransportException: Cannot execute reques
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215)
-	at com.huangmaojie.duomall.commodity.Application.main(Application.java:18)
+	at com.huangmaojie.duomall.goods.Application.main(Application.java:18)
 19:13:13.970 logback [main] WARN  c.netflix.discovery.DiscoveryClient - Using default backup registry implementation which does not do anything.
 19:13:13.971 logback [main] INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 5
 19:13:13.972 logback [main] INFO  c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4

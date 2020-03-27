@@ -1,4 +1,4 @@
-package com.huangmaojie.duomall.commodity.controller;
+package com.huangmaojie.duomall.goods.controller;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
