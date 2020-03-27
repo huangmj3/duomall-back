@@ -1,4 +1,4 @@
-package com.huangmaojie.duomall.user.entity;
+package com.huangmaojie.duomall.cart.entity;
 
 public class Result {
     private boolean flag;
