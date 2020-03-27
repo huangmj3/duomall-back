@@ -20,9 +20,9 @@ public class SearchPageInformation {
     /**
      * 页数
      */
-    int pageNum;
+    int pageNum = 1;
     /**
      * 每页大小
      */
-    int pageSize;
+    int pageSize = 1;
 }

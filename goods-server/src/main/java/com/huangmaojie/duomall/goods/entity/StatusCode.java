@@ -1,4 +1,4 @@
-package com.huangmaojie.duomall.user.entity;
+package com.huangmaojie.duomall.goods.entity;
 
 public class StatusCode {
     public static final int OK = 20000;//成功

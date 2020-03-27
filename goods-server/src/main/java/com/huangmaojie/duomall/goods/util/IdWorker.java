@@ -1,4 +1,4 @@
-package com.huangmaojie.duomall.user.util;
+package com.huangmaojie.duomall.goods.util;
 
 import java.lang.management.ManagementFactory;
 import java.net.InetAddress;

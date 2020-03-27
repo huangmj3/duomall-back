@@ -27,7 +27,19 @@ public class GoodsServiceImpl implements GoodsService {
     public Page<Goods> findGoodsByKey(String key) {
         GoodsExample goodsExample = new GoodsExample();
         goodsExample.createCriteria()
-                .andNameLike(key);
+                .andNameLike("%" + key + "%");
+        Page<Goods> foundGoods = goodsMapper.selectByExample(goodsExample);
+        return foundGoods;
+    }
+
+    /**
+     * 根据商品类型查找商品
+     */
+    @Override
+    public Page<Goods> findGoodsByType(String type) {
+        GoodsExample goodsExample = new GoodsExample();
+        goodsExample.createCriteria()
+                .andNameLike("%" + type + "%");
         Page<Goods> foundGoods = goodsMapper.selectByExample(goodsExample);
         return foundGoods;
     }

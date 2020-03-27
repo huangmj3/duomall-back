@@ -2,7 +2,7 @@ server:
   port: 8802 #运行端口号
 spring:
   application:
-      name: duomall-commodity-server #服务名称
+      name: duomall-goods-server #服务名称
   #    name: duomall-commodity-server-local #本地测试用
   datasource:
     name: duomall-user
@@ -72,8 +72,8 @@ eureka:
   #    non-secure-port: 8701
   client:
     service-url:
-#      defaultZone: http://47.94.204.116:8705/eureka/
-      defaultZone: http://localhost:8705/eureka/
+      defaultZone: http://47.94.204.116:8705/eureka/
+#      defaultZone: http://localhost:8705/eureka/
 pagehelper:
   helperDialect: mysql
   reasonable: true

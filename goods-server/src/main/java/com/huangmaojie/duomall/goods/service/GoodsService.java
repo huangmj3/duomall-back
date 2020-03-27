@@ -21,4 +21,6 @@ public interface GoodsService {
      * @return 寻找结果
      */
     public Page<Goods> findGoodsByKey(@NotEmpty String key);
+
+    Page<Goods> findGoodsByType(String type);
 }

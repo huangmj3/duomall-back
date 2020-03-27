@@ -6,6 +6,7 @@ import com.github.pagehelper.PageInfo;
 import com.huangmaojie.duomall.goods.entity.Goods;
 import com.huangmaojie.duomall.goods.entity.SearchPageInformation;
 import com.huangmaojie.duomall.goods.service.GoodsService;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,10 +24,23 @@ public class GoodsSearchController {
     @Autowired
     private GoodsService goodsService;
 
-    @RequestMapping(value = "/goods",method = RequestMethod.GET)
-    public PageInfo<Goods> searchGoodsByKey(@RequestBody SearchPageInformation pageInformation){
-        PageHelper.startPage(pageInformation.getPageNum(),pageInformation.getPageSize());
-        PageInfo<Goods> goods = new PageInfo<>(goodsService.findGoodsByKey(pageInformation.getKey()));
+    @RequestMapping(value = "/key", method = RequestMethod.GET)
+    public PageInfo<Goods> searchGoodsByKey(@RequestParam String key,@RequestParam(defaultValue = "1") int pageNum ,@RequestParam(defaultValue = "1") int pageSize) {
+        if(StringUtils.isEmpty(key)){
+            return null;
+        }
+        PageHelper.startPage(pageNum, pageSize);
+        PageInfo<Goods> goods = new PageInfo<>(goodsService.findGoodsByKey(key));
+        return goods;
+    }
+
+    @RequestMapping(value = "/type", method = RequestMethod.GET)
+    public PageInfo<Goods> searchGoodsByType(@RequestParam String type,@RequestParam(defaultValue = "1") int pageNum ,@RequestParam(defaultValue = "1") int pageSize) {
+        if(StringUtils.isEmpty(type)){
+            return null;
+        }
+        PageHelper.startPage(pageNum, pageSize);
+        PageInfo<Goods> goods = new PageInfo<>(goodsService.findGoodsByType(type));
         return goods;
     }
 }
