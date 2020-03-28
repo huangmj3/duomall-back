@@ -71,7 +71,8 @@ eureka:
   #    non-secure-port: 8701
   client:
     service-url:
-      defaultZone: http://127.0.0.1:8705/eureka/
+#      defaultZone: http://127.0.0.1:8705/eureka/
+      defaultZone: http://47.94.204.116:8705/eureka/
 pagehelper:
   helperDialect: mysql
   reasonable: true

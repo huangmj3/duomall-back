@@ -25,16 +25,16 @@ eureka:
   #    non-secure-port: 8701
   client:
     service-url:
-#      defaultZone: http://47.94.204.116:8705/eureka/
-      defaultZone: http://localhost:8705/eureka/
+      defaultZone: http://47.94.204.116:8705/eureka/
+#      defaultZone: http://localhost:8705/eureka/
 zuul:
   routes:
     duomall-cart-server:
       path: /cart/**
       serviceId: duomall-cart-server
-    duomall-commodity-server:
-      path: /commodity/**
-      serviceId: duomall-commodity-server
+    duomall-goods-server:
+      path: /goods/**
+      serviceId: duomall-goods-server
     duomall-order-server:
       path: /order/**
       serviceId: duomall-order-server
