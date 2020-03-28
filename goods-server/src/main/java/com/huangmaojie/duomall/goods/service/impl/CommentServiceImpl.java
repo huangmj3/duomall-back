@@ -1,13 +1,10 @@
 package com.huangmaojie.duomall.goods.service.impl;
 
-import com.github.pagehelper.Page;
 import com.github.pagehelper.PageInfo;
 import com.huangmaojie.duomall.goods.entity.Comment;
 import com.huangmaojie.duomall.goods.entity.CommentExample;
-import com.huangmaojie.duomall.goods.entity.Goods;
-import com.huangmaojie.duomall.goods.entity.GoodsExample;
 import com.huangmaojie.duomall.goods.mapper.CommentMapper;
-import com.huangmaojie.duomall.goods.mapper.GoodsMapper;
+import com.huangmaojie.duomall.goods.mapper.extension.CommentExtMapper;
 import com.huangmaojie.duomall.goods.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,6 +20,9 @@ public class CommentServiceImpl implements CommentService {
 
     @Autowired
     private CommentMapper commentMapper;
+
+    @Autowired
+    private CommentExtMapper commentExtMapper;
 
     /**
      * 新增评论
@@ -40,7 +40,9 @@ public class CommentServiceImpl implements CommentService {
     @Override
     public void updateComment(Comment comment){
         CommentExample commentExample = new CommentExample();
-        commentExample.createCriteria();
+        commentExample.createCriteria()
+            .andIdEqualTo(comment.getId());
+        comment.setId(null);
         commentMapper.updateByExampleSelective(comment,commentExample);
     }
 
@@ -64,7 +66,7 @@ public class CommentServiceImpl implements CommentService {
         commentExample.createCriteria()
                 .andTargetIdEqualTo(goodsId)
                 .andTypeEqualTo(0);
-        PageInfo<Comment> cartInfo = new PageInfo<>(commentMapper.selectByExample(commentExample));
+        PageInfo<Comment> cartInfo = new PageInfo<>(commentExtMapper.selectByExample(commentExample));
         return cartInfo;
     }
 
@@ -79,7 +81,7 @@ public class CommentServiceImpl implements CommentService {
         commentExample.createCriteria()
                 .andTargetIdEqualTo(commentId)
                 .andTypeEqualTo(1);;
-        PageInfo<Comment> cartInfo = new PageInfo<>(commentMapper.selectByExample(commentExample));
+        PageInfo<Comment> cartInfo = new PageInfo<>(commentExtMapper.selectByExample(commentExample));
         return cartInfo;
     }
 }

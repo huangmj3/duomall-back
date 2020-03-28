@@ -49,8 +49,8 @@ spring:
         # &emsp;IP黑名单（共同存在时，deny优先于allow）
         deny:
 mybatis:
-  mapper-locations: classpath:mapper/*.xml
-  type-aliases-package: com.huangmaojie.duomall.user.entity
+  mapper-locations: classpath:mapper/*.xml,classpath:mapper/extension/*.xml
+  type-aliases-package: com.huangmaojie.duomall.order.entity
   config-location: classpath:mybatis-config.xml
 eureka:
   instance:

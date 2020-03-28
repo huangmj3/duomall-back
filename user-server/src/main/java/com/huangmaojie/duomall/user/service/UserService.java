@@ -43,11 +43,6 @@ public interface UserService {
      */
     void deleteUser(@NotEmpty String userId);
     /**
-     * 修改用户
-     * @param userId 用户名
-     */
-    void updateUser(@NotEmpty String userId);
-    /**
      * 根据用户名查找用户
      * @param userId 用户名
      */

@@ -4,6 +4,7 @@ import com.github.pagehelper.PageInfo;
 import com.huangmaojie.duomall.order.entity.Order;
 import com.huangmaojie.duomall.order.entity.OrderExample;
 import com.huangmaojie.duomall.order.mapper.OrderMapper;
+import com.huangmaojie.duomall.order.mapper.extension.OrderExtMapper;
 import com.huangmaojie.duomall.order.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,9 @@ public class OrderServiceImpl implements OrderService {
 
     @Autowired
     private OrderMapper orderMapper;
+
+    @Autowired
+    private OrderExtMapper orderExtMapper;
 
     /**
      * 新增订单
@@ -36,7 +40,9 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public void updateOrder(Order order){
         OrderExample orderExample = new OrderExample();
-        orderExample.createCriteria();
+        orderExample.createCriteria()
+            .andIdEqualTo(order.getId());
+        order.setId(null);
         orderMapper.updateByExampleSelective(order,orderExample);
     }
 
@@ -59,7 +65,7 @@ public class OrderServiceImpl implements OrderService {
         OrderExample orderExample = new OrderExample();
         orderExample.createCriteria()
                 .andUidEqualTo(uid);
-        PageInfo<Order> orderInfo = new PageInfo<>(orderMapper.selectByExample(orderExample));
+        PageInfo<Order> orderInfo = new PageInfo<>(orderExtMapper.selectByExample(orderExample));
         return orderInfo;
     }
 }

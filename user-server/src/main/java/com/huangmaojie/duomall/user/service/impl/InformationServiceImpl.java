@@ -27,7 +27,9 @@ public class InformationServiceImpl implements InformationService {
     @Override
     public void updateUserBasicInformation(User user){
         UserExample userExample = new UserExample();
-        userExample.createCriteria();
+        userExample.createCriteria()
+            .andIdEqualTo(user.getId());
+        user.setId(null);
         userMapper.updateByExampleSelective(user,userExample);
     }
 }

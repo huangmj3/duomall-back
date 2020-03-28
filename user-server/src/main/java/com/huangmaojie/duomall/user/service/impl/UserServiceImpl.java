@@ -5,15 +5,14 @@ import com.huangmaojie.duomall.user.entity.Constraints;
 import com.huangmaojie.duomall.user.entity.User;
 import com.huangmaojie.duomall.user.entity.UserExample;
 import com.huangmaojie.duomall.user.mapper.UserMapper;
+import com.huangmaojie.duomall.user.mapper.extension.UserExtMapper;
 import com.huangmaojie.duomall.user.service.UserService;
 import lombok.extern.slf4j.Slf4j;
-import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
 import javax.validation.constraints.NotEmpty;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,6 +27,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserMapper userMapper;
+
+    @Autowired
+    private UserExtMapper userExtMapper;
 
     @Override
     public User getUserByCellphone(String cellphone) {
@@ -86,14 +88,6 @@ public class UserServiceImpl implements UserService {
     }
 
     /**
-     * 更新用户信息
-     */
-    @Override
-    public void updateUser(@NotEmpty String userId) {
-
-    }
-
-    /**
      * 根据用户名查找用户
      */
     @Override
@@ -130,7 +124,7 @@ public class UserServiceImpl implements UserService {
     public PageInfo<User>  getAllUsers() {
         UserExample userExample = new UserExample();
         userExample.createCriteria();
-        PageInfo<User> users = new PageInfo<>(userMapper.selectByExample(userExample));
+        PageInfo<User> users = new PageInfo<>(userExtMapper.selectByExample(userExample));
         return users;
     }
 }

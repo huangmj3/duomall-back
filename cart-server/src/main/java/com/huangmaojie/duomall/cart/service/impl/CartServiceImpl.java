@@ -5,6 +5,7 @@ import com.github.pagehelper.PageInfo;
 import com.huangmaojie.duomall.cart.entity.Cart;
 import com.huangmaojie.duomall.cart.entity.CartExample;
 import com.huangmaojie.duomall.cart.mapper.CartMapper;
+import com.huangmaojie.duomall.cart.mapper.extension.CartExtMapper;
 import com.huangmaojie.duomall.cart.service.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,6 +24,9 @@ public class CartServiceImpl implements CartService {
     @Autowired
     private CartMapper cartMapper;
 
+    @Autowired
+    private CartExtMapper cartExtMapper;
+
     /**
      * 购物车内新增商品
      * @param cart 购物车商品信息
@@ -39,7 +43,9 @@ public class CartServiceImpl implements CartService {
     @Override
     public void updateGoods(Cart cart){
         CartExample cartExample = new CartExample();
-        cartExample.createCriteria();
+        cartExample.createCriteria()
+            .andIdEqualTo(cart.getId());
+        cart.setId(null);
         cartMapper.updateByExampleSelective(cart,cartExample);
     }
 
@@ -62,7 +68,7 @@ public class CartServiceImpl implements CartService {
         CartExample cartExample = new CartExample();
         cartExample.createCriteria()
                 .andUidEqualTo(uid);
-        PageInfo<Cart> cartInfo = new PageInfo<>(cartMapper.selectByExample(cartExample));
+        PageInfo<Cart> cartInfo = new PageInfo<>(cartExtMapper.selectByExample(cartExample));
         return cartInfo;
     }
 

@@ -17,7 +17,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableFeignClients
-@MapperScan("com.huangmaojie.duomall.goods.mapper")
+@MapperScan(value = {"com.huangmaojie.duomall.goods.mapper"})
 public class Application {
 
     public static void main(String[] args) {
