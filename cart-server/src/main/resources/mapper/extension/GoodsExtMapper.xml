@@ -154,7 +154,7 @@
       This element was generated on Sat Mar 28 13:25:12 CST 2020.
     -->
     insert into goods (id, name, type, 
-      cover_url, introduce, details_id, 
+      cover_url, introduce, details_id,
       price, real_price, status, 
       gmt_create, gmt_modified, version
       )

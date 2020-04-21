@@ -33,8 +33,8 @@ public class LoginController {
     @Autowired
     private JwtUtil jwtUtil;
 
-    @Autowired
-    private RedisTemplate redisTemplate;
+//    @Autowired
+//    private RedisTemplate redisTemplate;
 
     @RequestMapping(method = RequestMethod.POST)
     public Result loginByCellphone(HttpServletRequest request, @RequestBody User user) {
@@ -46,9 +46,10 @@ public class LoginController {
             //生成token给客户端，并临时存储到Redis中
             String token = jwtUtil.createJWT(userId, user.getCellphone(), "normalUser");
             date.put(Constraints.MATCHED,true);
+            date.put(Constraints.USER_ID,userId);
             date.put(Constraints.TOKEN,token);
             //存入redis中并设置过期时间
-            redisTemplate.opsForValue().set(Constraints.TOKEN,token,10, TimeUnit.HOURS);
+//            redisTemplate.opsForValue().set(Constraints.TOKEN,token,10, TimeUnit.HOURS);
             return new Result(true, StatusCode.OK, "账号密码正确", date);
         }else {
             date.put(Constraints.MATCHED,false);

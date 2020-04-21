@@ -2,15 +2,19 @@ package com.huangmaojie.duomall.cart.service.impl;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageInfo;
+import com.google.common.collect.Lists;
 import com.huangmaojie.duomall.cart.entity.Cart;
 import com.huangmaojie.duomall.cart.entity.CartExample;
 import com.huangmaojie.duomall.cart.mapper.CartMapper;
 import com.huangmaojie.duomall.cart.mapper.extension.CartExtMapper;
 import com.huangmaojie.duomall.cart.service.CartService;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.collections4.MapUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * 购物车服务实现类
@@ -77,11 +81,19 @@ public class CartServiceImpl implements CartService {
      */
     @Override
     public double getTotalPrice(String uid){
+        double totalPrice = 0;
         CartExample cartExample = new CartExample();
         cartExample.createCriteria()
                 .andUidEqualTo(uid);
-        Page<Cart> carts = cartMapper.selectByExample(cartExample);
-        List<Cart> foundCart = carts.getResult();
-        return 2.0;
+        Page<Cart> carts = cartExtMapper.selectByExample(cartExample);
+        if(carts != null && CollectionUtils.isNotEmpty(carts.getResult())){
+            List<Cart> foundCart = carts.getResult();
+            List<Integer> goodsNums = foundCart.stream().map(Cart::getGoodsNum).collect(Collectors.toList());
+            List<Double> goodsUnitPrice = foundCart.stream().map(Cart::getGoodsUnitPrice).collect(Collectors.toList());
+            for (int i = 0; i < goodsNums.size(); i++) {
+                totalPrice += (goodsNums.get(i) * goodsUnitPrice.get(i));
+            }
+        }
+        return totalPrice;
     }
 }

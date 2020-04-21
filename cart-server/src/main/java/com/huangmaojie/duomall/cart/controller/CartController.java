@@ -6,8 +6,11 @@ import com.huangmaojie.duomall.cart.entity.Cart;
 import com.huangmaojie.duomall.cart.entity.Result;
 import com.huangmaojie.duomall.cart.entity.StatusCode;
 import com.huangmaojie.duomall.cart.service.CartService;
+import com.huangmaojie.duomall.cart.util.IdWorker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.text.DecimalFormat;
 
 /**
  * 购物车控制器
@@ -27,6 +30,8 @@ public class CartController {
      */
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public Result addGoods(@RequestBody Cart cart) {
+        cart.setId(new IdWorker().nextId() + "");
+        cart.setVersion(0L);
         cartService.addGoods(cart);
         return new Result(true, StatusCode.OK, "添加成功");
     }
@@ -52,9 +57,13 @@ public class CartController {
 
     /**
      * 获得购物车内商品总价
+     * @return
      */
-    @RequestMapping(value = "price",method = RequestMethod.GET)
-    public double getTotalPrice(@RequestParam String uid){
-        return 1.0;
+    @RequestMapping(value = "/price",method = RequestMethod.GET)
+    public String getTotalPrice(@RequestParam String uid){
+        double totalPrice = cartService.getTotalPrice(uid);
+        DecimalFormat doubleFormat = new DecimalFormat("0.00");
+//        return Double.parseDouble(doubleFormat.format(totalPrice));
+        return doubleFormat.format(totalPrice);
     }
 }

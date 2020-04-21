@@ -41,7 +41,7 @@ public class RegisterController {
     public Result register(@RequestBody User user) {
         //根据手机号查找用户
         User foundUser = userService.getUserByCellphone(user.getCellphone());
-        if (foundUser == null) {
+        if (foundUser != null) {
             return new Result(false, StatusCode.CELLPHONE_EXITS, "手机号已存在");
         }
         user.setId(new IdWorker().nextId() + "");

@@ -28,8 +28,8 @@ spring:
       # 配置检测可以关闭的空闲连接间隔时间
       time-between-eviction-runs-millis: 60000
       # 配置连接在池中的最小生存时间
-      min-evictable-idle-time-millis: 300000
-      max-evictable-idle-time-millis: 400000
+#      min-evictable-idle-time-millis: 300000
+#      max-evictable-idle-time-millis: 400000
       # 监控统计的stat,以及防sql注入的wall,         stat,wall,logback
       filters: stat
       #Spring监控AOP切入点，如x.y.z.service.*,配置多个英文逗号分隔

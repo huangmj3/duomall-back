@@ -1,5 +1,7 @@
 package com.huangmaojie.duomall.user.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -83,6 +85,7 @@ public class User implements Serializable {
      *
      * @mbg.generated Sat Mar 28 13:24:35 CST 2020
      */
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date birthday;
 
     /**

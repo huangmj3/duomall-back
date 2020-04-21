@@ -6,6 +6,7 @@ import com.huangmaojie.duomall.goods.entity.Comment;
 import com.huangmaojie.duomall.goods.entity.Result;
 import com.huangmaojie.duomall.goods.entity.StatusCode;
 import com.huangmaojie.duomall.goods.service.CommentService;
+import com.huangmaojie.duomall.goods.util.IdWorker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @CrossOrigin
 @RestController
+@RequestMapping("/comment")
 public class CommentController {
 
 
@@ -28,6 +30,10 @@ public class CommentController {
      */
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public Result addComment(@RequestBody Comment comment) {
+        comment.setId(new IdWorker().nextId() + "");
+        comment.setVersion(0L);
+        comment.setCommentCount(0L);
+        comment.setLikeCount(0L);
         commentService.addComment(comment);
         return new Result(true, StatusCode.OK, "添加成功");
     }
@@ -45,9 +51,9 @@ public class CommentController {
      * 根据商品id，获得全部评论
      */
     @RequestMapping(value = "/listByGoods",method = RequestMethod.GET)
-    public PageInfo<Comment> getCommentListByGoodsId(@RequestParam String goods_id, @RequestParam(defaultValue = "1") int pageNum, @RequestParam(defaultValue = "1") int pageSize){
+    public PageInfo<Comment> getCommentListByGoodsId(@RequestParam(value = "target_id") String goodsId, @RequestParam(defaultValue = "1") int pageNum, @RequestParam(defaultValue = "1") int pageSize){
         PageHelper.startPage(pageNum,pageSize);
-        PageInfo<Comment> cartPageInfo = commentService.selectCommentByGoodsId(goods_id);
+        PageInfo<Comment> cartPageInfo = commentService.selectCommentByGoodsId(goodsId);
         return cartPageInfo;
     }
 
@@ -55,9 +61,17 @@ public class CommentController {
      * 根据评论id，获得全部评论
      */
     @RequestMapping(value = "/listByComment",method = RequestMethod.GET)
-    public PageInfo<Comment> getCommentListByCommentId(@RequestParam String uid, @RequestParam(defaultValue = "1") int pageNum, @RequestParam(defaultValue = "1") int pageSize){
+    public PageInfo<Comment> getCommentListByCommentId(@RequestParam(value = "target_id") String commentId, @RequestParam(defaultValue = "1") int pageNum, @RequestParam(defaultValue = "1") int pageSize){
         PageHelper.startPage(pageNum,pageSize);
-        PageInfo<Comment> cartPageInfo = commentService.selectCommentByCommentId(uid);
+        PageInfo<Comment> cartPageInfo = commentService.selectCommentByCommentId(commentId);
         return cartPageInfo;
+    }
+
+    /**
+     * 删除评论
+     */
+    @RequestMapping(value = "/delete",method = RequestMethod.DELETE)
+    public void deleteComment(){
+        return;
     }
 }
