@@ -1,5 +1,7 @@
+# 不想使用spring cloud config时，可以继续使用该文件
+
 server:
-  port: 8705 #指定运行端口
+  port: 8704 #指定运行端口
 spring:
   application:
     name: duomall-eureka-server #指定服务名称

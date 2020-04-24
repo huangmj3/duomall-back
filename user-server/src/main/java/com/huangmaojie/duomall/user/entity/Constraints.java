@@ -13,4 +13,6 @@ public class Constraints {
     public static final String USER_ID = "userId";
     //token令牌
     public static final String TOKEN = "token";
+    //用户昵称
+    public static final String NAME = "name";
 }

@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 普通用户注册控制器
@@ -18,24 +20,32 @@ import java.util.Date;
  */
 @RestController
 @RequestMapping("/register")
-@CrossOrigin
+@CrossOrigin(allowCredentials = "true", maxAge = 3600)
 public class RegisterController {
 
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/cellphoneVerification", method = RequestMethod.POST)
-    public Result verification(@RequestBody User user) {
-        User userByCellphone = userService.getUserByCellphone(user.getCellphone());
+    /**
+     * 手机号校验
+     */
+    @RequestMapping(value = "/cellphoneVerification", method = RequestMethod.GET)
+    public Map verification(@RequestParam String cellphone) {
+        User userByCellphone = userService.getUserByCellphone(cellphone);
+        Map result = new HashMap();
         if (userByCellphone == null) {
-            return new Result(true, StatusCode.OK, "手机号可以注册",true);
+            result.put("possibility",true);
+            result.put("message","手机号可以注册");
+        }else {
+            result.put("possibility",false);
+            result.put("message","手机号已存在");
         }
-        return new Result(false, StatusCode.CELLPHONE_EXITS, "手机号已存在",false);
+        return result;
     }
 
 
     /**
-     * 用户注册控制器
+     * 普通用户注册
      */
     @RequestMapping(method = RequestMethod.POST)
     public Result register(@RequestBody User user) {

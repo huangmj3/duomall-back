@@ -11,20 +11,22 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
+ * 用户基本信息修改控制器
+ *
  * @author huangmaojie
  * @date 2020/3/25
  */
 @RestController
 @RequestMapping("/information")
-@CrossOrigin
+@CrossOrigin(allowCredentials = "true", maxAge = 3600)
 public class UserInformationController {
 
     @Autowired
     private InformationService informationService;
 
-    @RequestMapping(value = "/basic",method = RequestMethod.POST)
-    public Result updateBasicInformation(User user){
+    @RequestMapping(value = "/basic", method = RequestMethod.POST)
+    public Result updateBasicInformation(User user) {
         informationService.updateUserBasicInformation(user);
-        return new Result(true, StatusCode.OK,"修改成功");
+        return new Result(true, StatusCode.OK, "修改成功");
     }
 }

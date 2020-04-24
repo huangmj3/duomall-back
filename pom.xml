@@ -10,7 +10,7 @@
 	</parent>
 
 	<groupId>com.huangmaojie.duomall</groupId>
-	<artifactId>user-parent</artifactId>
+	<artifactId>duomall-parent</artifactId>
 	<packaging>pom</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 
@@ -18,9 +18,10 @@
 		<module>cart-server</module>
 		<module>goods-server</module>
 		<module>order-server</module>
-		<module>eureka</module>
-		<module>gateway</module>
 		<module>user-server</module>
+		<module>eureka</module>
+		<module>config</module>
+		<module>gateway</module>
 	</modules>
 
 	<properties>

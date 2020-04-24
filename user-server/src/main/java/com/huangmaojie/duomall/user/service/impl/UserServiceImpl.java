@@ -25,10 +25,10 @@ import java.util.Map;
 @Slf4j
 public class UserServiceImpl implements UserService {
 
-    @Autowired
+    @Autowired(required = false)
     private UserMapper userMapper;
 
-    @Autowired
+    @Autowired(required = false)
     private UserExtMapper userExtMapper;
 
     @Override
@@ -106,8 +106,10 @@ public class UserServiceImpl implements UserService {
         if(CollectionUtils.isEmpty(users)){
             result.put(Constraints.MATCHED,false);
         }else {
+            //匹配成功
             result.put(Constraints.MATCHED,true);
             result.put(Constraints.USER_ID,users.get(0).getId());
+            result.put(Constraints.NAME,users.get(0).getName());
         }
         return result;
     }

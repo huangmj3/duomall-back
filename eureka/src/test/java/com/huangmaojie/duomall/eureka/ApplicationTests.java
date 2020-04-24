@@ -1,10 +1,10 @@
-package com.huangmaojie.duomall.server;
+package com.huangmaojie.duomall.eureka;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ServerApplicationTests {
+class ApplicationTests {
 
     @Test
     void contextLoads() {

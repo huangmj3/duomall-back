@@ -8,3 +8,62 @@
 13:57:57.281 logback [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8802"]
 13:57:57.281 logback [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
 13:57:57.282 logback [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.30]
+13:57:57.375 logback [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+13:57:57.375 logback [main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1217 ms
+13:57:57.452 logback [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+13:58:00.269 logback [main] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+13:58:00.634 logback [main] WARN  c.n.c.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+13:58:00.634 logback [main] INFO  c.n.c.sources.URLConfigurationSource - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+13:58:00.637 logback [main] WARN  c.n.c.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+13:58:00.637 logback [main] INFO  c.n.c.sources.URLConfigurationSource - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+13:58:00.763 logback [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+13:58:00.994 logback [main] WARN  o.s.c.l.c.BlockingLoadBalancerClientAutoConfiguration$BlockingLoadBalancerClientRibbonWarnLogger - You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+13:58:01.079 logback [main] INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+13:58:01.102 logback [main] INFO  c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+13:58:01.147 logback [main] INFO  c.n.d.p.DiscoveryJerseyProvider - Using JSON encoding codec LegacyJacksonJson
+13:58:01.148 logback [main] INFO  c.n.d.p.DiscoveryJerseyProvider - Using JSON decoding codec LegacyJacksonJson
+13:58:01.228 logback [main] INFO  c.n.d.p.DiscoveryJerseyProvider - Using XML encoding codec XStreamXml
+13:58:01.228 logback [main] INFO  c.n.d.p.DiscoveryJerseyProvider - Using XML decoding codec XStreamXml
+13:58:01.345 logback [main] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+13:58:01.355 logback [main] INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+13:58:01.355 logback [main] INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+13:58:01.355 logback [main] INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+13:58:01.355 logback [main] INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+13:58:01.355 logback [main] INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+13:58:01.355 logback [main] INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: true
+13:58:01.355 logback [main] INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+13:58:01.592 logback [main] INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+13:58:01.594 logback [main] INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 5
+13:58:01.595 logback [main] INFO  c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+13:58:01.598 logback [main] INFO  c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1587535081597 with initial instances count: 2
+13:58:01.600 logback [main] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application DUOMALL-GOODS-SERVER with eureka with status UP
+13:58:01.600 logback [main] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1587535081600, current=UP, previous=STARTING]
+13:58:01.602 logback [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_DUOMALL-GOODS-SERVER/192.168.0.100:duomall-goods-server:8802: registering service...
+13:58:01.612 logback [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8802"]
+13:58:01.646 logback [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8802 (http) with context path ''
+13:58:01.647 logback [main] INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8802
+13:58:01.650 logback [main] INFO  c.h.duomall.goods.Application - Started Application in 6.294 seconds (JVM running for 6.819)
+13:58:01.677 logback [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_DUOMALL-GOODS-SERVER/192.168.0.100:duomall-goods-server:8802 - registration status: 204
+14:03:01.367 logback [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+14:08:01.379 logback [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+14:13:01.384 logback [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+14:18:01.400 logback [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+14:23:01.407 logback [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+14:28:01.414 logback [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+14:33:01.457 logback [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+14:38:01.471 logback [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+14:43:01.487 logback [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+14:48:01.503 logback [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+14:48:18.092 logback [http-nio-8802-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+14:48:18.093 logback [http-nio-8802-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+14:48:18.211 logback [http-nio-8802-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 117 ms
+14:48:41.084 logback [SpringContextShutdownHook] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application DUOMALL-GOODS-SERVER with eureka with status DOWN
+14:48:41.088 logback [SpringContextShutdownHook] WARN  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1587538121087, current=DOWN, previous=UP]
+14:48:41.091 logback [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_DUOMALL-GOODS-SERVER/192.168.0.100:duomall-goods-server:8802: registering service...
+14:48:41.132 logback [SpringContextShutdownHook] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+14:48:41.148 logback [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_DUOMALL-GOODS-SERVER/192.168.0.100:duomall-goods-server:8802 - registration status: 204
+14:48:41.226 logback [SpringContextShutdownHook] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+14:48:41.227 logback [SpringContextShutdownHook] INFO  c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+14:48:44.233 logback [SpringContextShutdownHook] INFO  c.netflix.discovery.DiscoveryClient - Unregistering ...
+14:48:44.290 logback [SpringContextShutdownHook] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_DUOMALL-GOODS-SERVER/192.168.0.100:duomall-goods-server:8802 - deregister  status: 200
+14:48:44.363 logback [SpringContextShutdownHook] INFO  c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient

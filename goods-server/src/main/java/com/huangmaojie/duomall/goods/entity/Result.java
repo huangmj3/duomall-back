@@ -1,7 +1,7 @@
 package com.huangmaojie.duomall.goods.entity;
 
 public class Result {
-    private boolean flag;
+    private boolean success;
     private Integer code;
     private String message;
     private Object data;
@@ -9,15 +9,15 @@ public class Result {
     public Result() {
     }
 
-    public Result(boolean flag, Integer code, String message, Object data) {
-        this.flag = flag;
+    public Result(boolean success, Integer code, String message, Object data) {
+        this.success = success;
         this.code = code;
         this.message = message;
         this.data = data;
     }
 
-    public Result(boolean flag, Integer code, String message) {
-        this.flag = flag;
+    public Result(boolean success, Integer code, String message) {
+        this.success = success;
         this.code = code;
 
         this.message = message;
@@ -31,12 +31,12 @@ public class Result {
         this.code = code;
     }
 
-    public boolean isFlag() {
-        return flag;
+    public boolean isSuccess() {
+        return success;
     }
 
-    public void setFlag(boolean flag) {
-        this.flag = flag;
+    public void setSuccess(boolean success) {
+        this.success = success;
     }
 
     public String getMessage() {

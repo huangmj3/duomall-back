@@ -18,14 +18,14 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/search")
-@CrossOrigin
+@CrossOrigin(allowCredentials = "true", maxAge = 3600)
 public class UserSearchController {
 
     @Autowired
     private UserService userService;
 
     @RequestMapping(value = "/all", method = RequestMethod.GET)
-    public PageInfo<User> findAllUsers(@RequestParam int pageNum, @RequestParam int pageSize) {
+    public PageInfo<User> findAllUsers(@RequestParam(defaultValue = "1") int pageNum, @RequestParam(defaultValue = "1") int pageSize) {
         PageHelper.startPage(pageNum, pageSize);
         return userService.getAllUsers();
     }

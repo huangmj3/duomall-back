@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
  * @author huangmaojie
  * @date 2020/3/28
  */
-@Service
+//@Service
 public class OrderServiceImpl implements OrderService {
 
     @Autowired

@@ -1,6 +1,9 @@
-package com.huangmaojie.duomall.user.controller;
+package com.huangmaojie.duomall.goods.controller;
 
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * 健康监听

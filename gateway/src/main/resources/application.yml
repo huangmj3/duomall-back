@@ -25,7 +25,7 @@ eureka:
   #    non-secure-port: 8701
   client:
     service-url:
-      defaultZone: http://47.94.204.116:8705/eureka/
+      defaultZone: http://139.129.12.201:8704/eureka/
 #      defaultZone: http://localhost:8705/eureka/
 zuul:
   routes:
