@@ -5,7 +5,7 @@ create table if not exists user
     `cellphone`           varchar(36) not null comment '手机号',
     `email`               varchar(36) comment '邮箱',
     `Login_password`      varchar(16) not null comment '登录密码',
-    `payment_password`    char(6)     not null comment '支付密码',
+    `payment_password`    char(6)     null comment '支付密码',
     `name`                varchar(36) not null comment '昵称',
     `avatar`              varchar(255) comment '头像',
     `sex`                 char comment '性别',

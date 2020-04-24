@@ -1,7 +1,7 @@
 use duomall;
 create table if not exists order
 (
-    `id`           varchar(36)   not null comment '主键id',
+    `id`             varchar(36) not null comment '主键id',
     `uid`          varchar(36)   not null comment '用户id，管理user表',
     `pay_price`    double(20, 2) not null comment '实际支付价格',
     `is_pay`       boolean       not null comment '是否已支付',

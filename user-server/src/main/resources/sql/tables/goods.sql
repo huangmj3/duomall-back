@@ -1,3 +1,4 @@
+# 创建商品概要表
 use duomall;
 create table if not exists goods
 (

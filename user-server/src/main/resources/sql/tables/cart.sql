@@ -1,3 +1,4 @@
+# 创建购物车信息表
 use duomall;
 create table if not exists cart
 (

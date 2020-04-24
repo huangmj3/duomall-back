@@ -1,3 +1,4 @@
+# 创建评论表
 use duomall;
 create table if not exists comment
 (
