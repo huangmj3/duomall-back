@@ -1,22 +1,10 @@
-# 用户微服务开发用配置文件
+# 购物车微服务开发用配置文件
 
 server:
-  port: 8804 #运行端口号
+  port: 8801 #运行端口号
 spring:
   application:
-    name: duomall-user-server #服务名称
-#   name: duomall-user-server-local
-  cloud:
-    config:
-      #  配置中心服务器
-      server:
-        git:
-          uri: 1111
-      #  配置中心客户端
-      name: base
-      profile: dev
-      label: master
-      uri: 111
+    name: duomall-cart-server #服务名称
   datasource:
     name: duomall-user
     # 连接池类型，druid连接池springboot暂无法默认支持，需要自己配置bean
@@ -62,17 +50,12 @@ spring:
         allow: 127.0.0.1
         # &emsp;IP黑名单（共同存在时，deny优先于allow）
         deny:
-  redis:
-    host: 139.129.12.201
-  rabbitmq:
-    host: 139.129.12.201
 mybatis:
   mapper-locations: classpath:mapper/*.xml,classpath:mapper/extension/*.xml
-  type-aliases-package: com.huangmaojie.duomall.user.entity
+  type-aliases-package: com.huangmaojie.duomall.cart.entity
   config-location: classpath:mybatis-config.xml
 eureka:
   instance:
-#    hostname: user-server-local
     #    prefer-ip-address: true   #以IP地址注册到服务中心，相互注册使用IP地址
     # 表示eureka client间隔多久去拉取服务注册信息，默认为30秒，如果要迅速获取服务注册状态，可以缩小该值
     lease-renewal-interval-in-seconds: 5
@@ -82,26 +65,20 @@ eureka:
     # 如果该值设置太小了，则instance则很可能因为临时的网络抖动而被摘除掉。
     # 该值至少应该大于 leaseRenewalIntervalInSeconds
     lease-expiration-duration-in-seconds: 10
-#    设置使用ip
+    #    设置使用ip
     prefer-ip-address: true
-#    设置外网IP号
-#    ip-address: 47.94.204.116
-#    设置外网端口号
-#    non-secure-port: 8701
+  #    设置外网IP号
+  #    ip-address: 47.94.204.116
+  #    设置外网端口号
+  #    non-secure-port: 8701
   client:
     service-url:
+#      defaultZone: http://127.0.0.1:8705/eureka/
       defaultZone: http://139.129.12.201:8704/eureka/
-#      defaultZone: http://localhost:8705/eureka/
-jwt:
-  config:
-    key: huangmj
-    expire_date: 36000000
-    #pagehelper分页插件配置
 pagehelper:
   helperDialect: mysql
   reasonable: true
   supportMethodsArguments: true
   params:
-   count: countSql
-
+    count: countSql
 

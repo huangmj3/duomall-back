@@ -1,6 +1,8 @@
+server:
+  port: 8705
 spring:
   application:
-    name: config-single-server  # 应用名称
+    name: config-server  # 应用名称
   cloud:
     config:
       server:

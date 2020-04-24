@@ -1,0 +1,45 @@
+# 网关开发用配置文件
+
+server:
+  port: 8706 #运行端口号
+spring:
+  application:
+    name: duomall-gateway-server #服务名称
+  #   name: duomall-user-server-local
+eureka:
+  instance:
+    hostname: duomall-gateway-server
+    #    hostname: user-server-local
+    #    prefer-ip-address: true   #以IP地址注册到服务中心，相互注册使用IP地址
+    # 表示eureka client间隔多久去拉取服务注册信息，默认为30秒，如果要迅速获取服务注册状态，可以缩小该值
+    lease-renewal-interval-in-seconds: 5
+    # 表示eureka server至上一次收到client的心跳之后，等待下一次心跳的超时时间，在这个时间内若没收到下一次心跳，则将移除该instance。
+    # 默认为90秒
+    # 如果该值太大，则很可能将流量转发过去的时候，该instance已经不存活了。
+    # 如果该值设置太小了，则instance则很可能因为临时的网络抖动而被摘除掉。
+    # 该值至少应该大于 leaseRenewalIntervalInSeconds
+    lease-expiration-duration-in-seconds: 10
+    #    设置使用ip
+    prefer-ip-address: true
+  #    设置外网IP号
+  #    ip-address: 47.94.204.116
+  #    设置外网端口号
+  #    non-secure-port: 8701
+  client:
+    service-url:
+      defaultZone: http://139.129.12.201:8704/eureka/
+#      defaultZone: http://localhost:8705/eureka/
+zuul:
+  routes:
+    duomall-cart-server:
+      path: /cart/**
+      serviceId: duomall-cart-server
+    duomall-goods-server:
+      path: /goods/**
+      serviceId: duomall-goods-server
+    duomall-order-server:
+      path: /order/**
+      serviceId: duomall-order-server
+    duomall-user-server:
+      path: /user/**
+      serviceId: duomall-user-server
