@@ -10,8 +10,7 @@
     </parent>
     <groupId>com.huangmaojie.duomall</groupId>
     <artifactId>eureka</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <description>Demo project for Spring Boot</description>
+    <version>0.0.2-SNAPSHOT</version>
 
     <properties>
         <java.version>1.8</java.version>
