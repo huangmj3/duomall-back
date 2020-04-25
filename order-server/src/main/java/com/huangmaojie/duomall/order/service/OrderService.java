@@ -1,7 +1,7 @@
 package com.huangmaojie.duomall.order.service;
 
 import com.github.pagehelper.PageInfo;
-import com.huangmaojie.duomall.order.entity.Order;
+import com.huangmaojie.duomall.order.entity.OrderInformation;
 
 /**
  * 订单服务接口
@@ -10,11 +10,11 @@ import com.huangmaojie.duomall.order.entity.Order;
  * @date 2020/3/28
  */
 public interface OrderService {
-    void addOrder(Order order);
+    void addOrder(OrderInformation order);
 
-    void updateOrder(Order order);
+    void updateOrder(OrderInformation order);
 
     void deleteOrder(String orderId);
 
-    PageInfo<Order> selectOrderByUid(String uid);
+    PageInfo<OrderInformation> selectOrderByUid(String uid);
 }

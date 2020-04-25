@@ -63,13 +63,13 @@
             <!--	修改类型映射		-->
             <columnOverride column="status" javaType="Integer"/>
         </table>
-        <table tableName="goods_images" domainObjectName="GoodsImages" enableCountByExample="true"
+        <table tableName="goods_image" domainObjectName="GoodsImage" enableCountByExample="true"
                enableDeleteByExample="true" enableSelectByExample="true" enableUpdateByExample="true">
             <!--<generatedKey column="id" sqlStatement="MYSQL" identity="true" type="post"/>-->
             <!--	修改类型映射		-->
             <columnOverride column="status" javaType="Integer"/>
         </table>
-        <table tableName="goods_params" domainObjectName="GoodsParams" enableCountByExample="true"
+        <table tableName="goods_param" domainObjectName="GoodsParam" enableCountByExample="true"
                enableDeleteByExample="true" enableSelectByExample="true" enableUpdateByExample="true">
             <!--<generatedKey column="id" sqlStatement="MYSQL" identity="true" type="post"/>-->
             <!--	修改类型映射		-->
@@ -81,19 +81,19 @@
             <!--	修改类型映射		-->
             <columnOverride column="status" javaType="Integer"/>
         </table>
-        <table tableName="orders" domainObjectName="Orders" enableCountByExample="true"
+        <table tableName="order_information" domainObjectName="OrderInformation" enableCountByExample="true"
                enableDeleteByExample="true" enableSelectByExample="true" enableUpdateByExample="true">
             <!--<generatedKey column="id" sqlStatement="MYSQL" identity="true" type="post"/>-->
             <!--	修改类型映射		-->
             <columnOverride column="status" javaType="Integer"/>
         </table>
-        <table tableName="remark" domainObjectName="Remarks" enableCountByExample="true"
+        <table tableName="remark" domainObjectName="Remark" enableCountByExample="true"
                enableDeleteByExample="true" enableSelectByExample="true" enableUpdateByExample="true">
             <!--<generatedKey column="id" sqlStatement="MYSQL" identity="true" type="post"/>-->
             <!--	修改类型映射		-->
             <columnOverride column="status" javaType="Integer"/>
         </table>
-        <table tableName="users" domainObjectName="Users" enableCountByExample="true"
+        <table tableName="user" domainObjectName="User" enableCountByExample="true"
                enableDeleteByExample="true" enableSelectByExample="true" enableUpdateByExample="true">
             <!--<generatedKey column="id" sqlStatement="MYSQL" identity="true" type="post"/>-->
             <!--	修改类型映射		-->

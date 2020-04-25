@@ -8,13 +8,18 @@
       This element was generated on Sat Mar 28 13:24:59 CST 2020.
     -->
     <id column="id" jdbcType="VARCHAR" property="id" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="shop_name" jdbcType="VARCHAR" property="shopName" />
     <result column="type" jdbcType="VARCHAR" property="type" />
-    <result column="cover_url" jdbcType="VARCHAR" property="coverUrl" />
-    <result column="introduce" jdbcType="VARCHAR" property="introduce" />
-    <result column="details_id" jdbcType="VARCHAR" property="detailsId" />
+    <result column="tags" jdbcType="VARCHAR" property="tags" />
+    <result column="discount" jdbcType="VARCHAR" property="discount" />
     <result column="price" jdbcType="VARCHAR" property="price" />
-    <result column="real_price" jdbcType="VARCHAR" property="realPrice" />
+    <result column="sale" jdbcType="BIGINT" property="sale" />
+    <result column="promotion" jdbcType="VARCHAR" property="promotion" />
+    <result column="params" jdbcType="VARCHAR" property="params" />
+    <result column="remark_tag_color" jdbcType="VARCHAR" property="remarkTagColor" />
+    <result column="remarks_count" jdbcType="BIGINT" property="remarksCount" />
+    <result column="good_analyse" jdbcType="INTEGER" property="goodAnalyse" />
     <result column="status" jdbcType="TINYINT" property="status" />
     <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate" />
     <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified" />

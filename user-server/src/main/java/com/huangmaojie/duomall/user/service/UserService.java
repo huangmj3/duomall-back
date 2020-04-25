@@ -1,12 +1,10 @@
 package com.huangmaojie.duomall.user.service;
 
-import com.github.pagehelper.Page;
 import com.github.pagehelper.PageInfo;
 import com.huangmaojie.duomall.user.entity.User;
 import org.springframework.validation.annotation.Validated;
 
 import javax.validation.constraints.NotEmpty;
-import java.util.List;
 import java.util.Map;
 
 /**

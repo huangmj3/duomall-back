@@ -1,13 +1,12 @@
 package com.huangmaojie.duomall.order.service.impl;
 
 import com.github.pagehelper.PageInfo;
-import com.huangmaojie.duomall.order.entity.Order;
-import com.huangmaojie.duomall.order.entity.OrderExample;
-import com.huangmaojie.duomall.order.mapper.OrderMapper;
-import com.huangmaojie.duomall.order.mapper.extension.OrderExtMapper;
+import com.huangmaojie.duomall.order.entity.OrderInformation;
+import com.huangmaojie.duomall.order.entity.OrderInformationExample;
+import com.huangmaojie.duomall.order.mapper.OrderInformationMapper;
+import com.huangmaojie.duomall.order.mapper.extension.OrderInformationExtMapper;
 import com.huangmaojie.duomall.order.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 /**
  * 订单服务实现类
@@ -19,17 +18,17 @@ import org.springframework.stereotype.Service;
 public class OrderServiceImpl implements OrderService {
 
     @Autowired
-    private OrderMapper orderMapper;
+    private OrderInformationMapper orderMapper;
 
     @Autowired
-    private OrderExtMapper orderExtMapper;
+    private OrderInformationExtMapper orderInformationExtMapper;
 
     /**
      * 新增订单
      * @param order 订单信息
      */
     @Override
-    public void addOrder(Order order){
+    public void addOrder(OrderInformation order){
         orderMapper.insert(order);
     }
 
@@ -38,8 +37,8 @@ public class OrderServiceImpl implements OrderService {
      * @param order 新的订单信息
      */
     @Override
-    public void updateOrder(Order order){
-        OrderExample orderExample = new OrderExample();
+    public void updateOrder(OrderInformation order){
+        OrderInformationExample orderExample = new OrderInformationExample();
         orderExample.createCriteria()
             .andIdEqualTo(order.getId());
         order.setId(null);
@@ -61,11 +60,11 @@ public class OrderServiceImpl implements OrderService {
      * @return 带有分页的订单信息
      */
     @Override
-    public PageInfo<Order> selectOrderByUid(String uid){
-        OrderExample orderExample = new OrderExample();
+    public PageInfo<OrderInformation> selectOrderByUid(String uid){
+        OrderInformationExample orderExample = new OrderInformationExample();
         orderExample.createCriteria()
-                .andUidEqualTo(uid);
-        PageInfo<Order> orderInfo = new PageInfo<>(orderExtMapper.selectByExample(orderExample));
+                .andUserIdEqualTo(uid);
+        PageInfo<OrderInformation> orderInfo = new PageInfo<>(orderInformationExtMapper.selectByExample(orderExample));
         return orderInfo;
     }
 }

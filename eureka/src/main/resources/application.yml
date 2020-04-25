@@ -15,4 +15,3 @@ eureka:
     prefer-ip-address: true
 #    ip-address: 192.168.0.102
 #    non-secure-port: 8705
-

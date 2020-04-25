@@ -3,7 +3,6 @@ package com.huangmaojie.duomall.user.controller;
 import com.huangmaojie.duomall.user.entity.Constraints;
 import com.huangmaojie.duomall.user.entity.Result;
 import com.huangmaojie.duomall.user.entity.StatusCode;
-import com.huangmaojie.duomall.user.entity.User;
 import com.huangmaojie.duomall.user.service.UserService;
 import com.huangmaojie.duomall.user.util.JwtUtil;
 import org.apache.commons.collections4.MapUtils;
@@ -12,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;

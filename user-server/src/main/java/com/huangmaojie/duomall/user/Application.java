@@ -8,10 +8,6 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
-/**
- * @author huangmaojie
- * @date 2020.2.26
- */
 @Slf4j
 @EnableEurekaClient
 @SpringBootApplication
@@ -20,10 +16,8 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @MapperScan("com.huangmaojie.duomall.user.mapper")
 public class Application {
 
-    public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
-        System.out.println("---------------------END---------------------");
-        log.info("111");
-    }
+	public static void main(String[] args) {
+		SpringApplication.run(Application.class, args);
+	}
 
 }

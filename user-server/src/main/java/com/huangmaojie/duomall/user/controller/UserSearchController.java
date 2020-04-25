@@ -2,13 +2,10 @@ package com.huangmaojie.duomall.user.controller;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.huangmaojie.duomall.user.entity.PageInformation;
 import com.huangmaojie.duomall.user.entity.User;
 import com.huangmaojie.duomall.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 /**
  * 用户查找控制器
