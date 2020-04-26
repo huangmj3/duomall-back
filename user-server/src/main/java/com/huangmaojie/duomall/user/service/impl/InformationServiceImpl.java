@@ -25,11 +25,11 @@ public class InformationServiceImpl implements InformationService {
      * 修改用户基本信息
      */
     @Override
-    public void updateUserBasicInformation(User user){
+    public void updateUserBasicInformation(User user) {
         UserExample userExample = new UserExample();
         userExample.createCriteria()
-            .andIdEqualTo(user.getId());
+                .andIdEqualTo(user.getId());
         user.setId(null);
-        userMapper.updateByExampleSelective(user,userExample);
+        userMapper.updateByExampleSelective(user, userExample);
     }
 }

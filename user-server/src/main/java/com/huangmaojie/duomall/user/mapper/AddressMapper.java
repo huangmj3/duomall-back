@@ -2,7 +2,9 @@ package com.huangmaojie.duomall.user.mapper;
 
 import com.huangmaojie.duomall.user.entity.Address;
 import com.huangmaojie.duomall.user.entity.AddressExample;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface AddressMapper {

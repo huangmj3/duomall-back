@@ -2,7 +2,9 @@ package com.huangmaojie.duomall.user.mapper;
 
 import com.huangmaojie.duomall.user.entity.GoodsImage;
 import com.huangmaojie.duomall.user.entity.GoodsImageExample;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface GoodsImageMapper {

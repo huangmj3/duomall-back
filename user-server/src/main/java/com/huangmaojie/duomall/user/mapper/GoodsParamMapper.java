@@ -2,7 +2,9 @@ package com.huangmaojie.duomall.user.mapper;
 
 import com.huangmaojie.duomall.user.entity.GoodsParam;
 import com.huangmaojie.duomall.user.entity.GoodsParamExample;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface GoodsParamMapper {

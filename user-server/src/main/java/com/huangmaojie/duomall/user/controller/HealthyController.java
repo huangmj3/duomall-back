@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(allowCredentials = "true", maxAge = 3600)
 public class HealthyController {
     @RequestMapping(method = RequestMethod.GET)
-    public String test(){
+    public String test() {
         return "健康";
     }
 }

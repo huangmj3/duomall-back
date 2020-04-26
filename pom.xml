@@ -22,6 +22,7 @@
 		<module>eureka</module>
 		<module>config</module>
 		<module>gateway</module>
+		<module>pay-server</module>
 	</modules>
 
 	<properties>

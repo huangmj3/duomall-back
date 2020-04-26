@@ -37,7 +37,7 @@ public class UserServiceImpl implements UserService {
         userExample.createCriteria()
                 .andCellphoneEqualTo(cellphone);
         List<User> users = userMapper.selectByExample(userExample);
-        if(CollectionUtils.isEmpty(users)){
+        if (CollectionUtils.isEmpty(users)) {
             return null;
         }
         return users.get(0);
@@ -45,6 +45,7 @@ public class UserServiceImpl implements UserService {
 
     /**
      * 增加普通用户
+     *
      * @oaram user 用户信息
      */
     @Override
@@ -54,6 +55,7 @@ public class UserServiceImpl implements UserService {
 
     /**
      * 增加用户管理员用户
+     *
      * @param user 用户信息
      */
     @Override
@@ -63,6 +65,7 @@ public class UserServiceImpl implements UserService {
 
     /**
      * 增加产品管理员用户
+     *
      * @param user 用户信息
      */
     @Override
@@ -72,6 +75,7 @@ public class UserServiceImpl implements UserService {
 
     /**
      * 增加物流管理员用户
+     *
      * @param user 用户信息
      */
     @Override
@@ -97,19 +101,19 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Map loginVerification(@NotEmpty String cellphone, @NotEmpty String loginPassword) {
-        Map result = new HashMap<String,Object>();
+        Map result = new HashMap<String, Object>();
         UserExample userExample = new UserExample();
         userExample.createCriteria()
                 .andCellphoneEqualTo(cellphone)
                 .andLoginPasswordEqualTo(loginPassword);
         List<User> users = userMapper.selectByExample(userExample);
-        if(CollectionUtils.isEmpty(users)){
-            result.put(Constraints.MATCHED,false);
-        }else {
+        if (CollectionUtils.isEmpty(users)) {
+            result.put(Constraints.MATCHED, false);
+        } else {
             //匹配成功
-            result.put(Constraints.MATCHED,true);
-            result.put(Constraints.USER_ID,users.get(0).getId());
-            result.put(Constraints.NAME,users.get(0).getName());
+            result.put(Constraints.MATCHED, true);
+            result.put(Constraints.USER_ID, users.get(0).getId());
+            result.put(Constraints.NAME, users.get(0).getName());
         }
         return result;
     }
@@ -123,7 +127,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public PageInfo<User>  getAllUsers() {
+    public PageInfo<User> getAllUsers() {
         UserExample userExample = new UserExample();
         userExample.createCriteria();
         PageInfo<User> users = new PageInfo<>(userExtMapper.selectByExample(userExample));

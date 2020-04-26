@@ -10,6 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @FeignClient(value = "duomall-commodity-server")
 public interface LabelClient {
-    @RequestMapping(value = "/label",method = RequestMethod.GET)
+    @RequestMapping(value = "/label", method = RequestMethod.GET)
     public String findAll();
 }

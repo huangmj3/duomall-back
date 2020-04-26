@@ -18,7 +18,7 @@ import java.util.Date;
 public class JwtUtil {
 
     @Value("${jwt.config.key}")
-    private String key ;      //盐
+    private String key;      //盐
 
     @Value("${jwt.config.expire_date}")
     private long expireDate;   //过期时间
@@ -26,9 +26,9 @@ public class JwtUtil {
     /**
      * 生成JWT
      *
-     * @param id token生成对象id
+     * @param id      token生成对象id
      * @param subject token生成对象主体
-     * @param roles token生成对象角色
+     * @param roles   token生成对象角色
      * @return token令牌
      */
     public String createJWT(String id, String subject, String roles) {
@@ -39,7 +39,7 @@ public class JwtUtil {
                 .setIssuedAt(now)
                 .signWith(SignatureAlgorithm.HS256, key).claim("roles", roles);
         if (expireDate > 0) {
-            builder.setExpiration( new Date( nowMillis + expireDate));
+            builder.setExpiration(new Date(nowMillis + expireDate));
         }
         return builder.compact();
     }
@@ -50,8 +50,8 @@ public class JwtUtil {
      * @param jwtStr jwt字符串
      * @return 解析对象
      */
-    public Claims parseJWT(String jwtStr){
-        return  Jwts.parser()
+    public Claims parseJWT(String jwtStr) {
+        return Jwts.parser()
                 .setSigningKey(key)
                 .parseClaimsJws(jwtStr)
                 .getBody();

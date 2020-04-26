@@ -16,8 +16,8 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @MapperScan("com.huangmaojie.duomall.user.mapper")
 public class Application {
 
-	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(Application.class, args);
+    }
 
 }

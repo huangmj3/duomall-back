@@ -13,6 +13,7 @@ import com.huangmaojie.duomall.user.entity.UserExample;
 public interface UserExtMapper {
     /**
      * 分页信息
+     *
      * @param example
      * @return 含有分页信息的列表
      */

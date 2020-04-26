@@ -2,7 +2,9 @@ package com.huangmaojie.duomall.user.mapper;
 
 import com.huangmaojie.duomall.user.entity.Cart;
 import com.huangmaojie.duomall.user.entity.CartExample;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface CartMapper {

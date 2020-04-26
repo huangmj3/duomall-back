@@ -34,11 +34,11 @@ public class RegisterController {
         User userByCellphone = userService.getUserByCellphone(cellphone);
         Map result = new HashMap();
         if (userByCellphone == null) {
-            result.put("possibility",true);
-            result.put("message","手机号可以注册");
-        }else {
-            result.put("possibility",false);
-            result.put("message","手机号已存在");
+            result.put("possibility", true);
+            result.put("message", "手机号可以注册");
+        } else {
+            result.put("possibility", false);
+            result.put("message", "手机号已存在");
         }
         return result;
     }
