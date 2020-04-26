@@ -3,11 +3,9 @@ server:
 spring:
   application:
     name: duomall-gateway-server #服务名称
-  #   name: duomall-user-server-local
 eureka:
   instance:
     hostname: duomall-gateway-server
-    #    hostname: user-server-local
     #    prefer-ip-address: true   #以IP地址注册到服务中心，相互注册使用IP地址
     # 表示eureka client间隔多久去拉取服务注册信息，默认为30秒，如果要迅速获取服务注册状态，可以缩小该值
     lease-renewal-interval-in-seconds: 5
@@ -26,7 +24,6 @@ eureka:
   client:
     service-url:
       defaultZone: http://139.129.12.201:8704/eureka/
-#      defaultZone: http://localhost:8705/eureka/
 zuul:
   routes:
     duomall-cart-server:
@@ -41,3 +38,6 @@ zuul:
     duomall-user-server:
       path: /user/**
       serviceId: duomall-user-server
+    duomall-pay-server:
+      path: /pay/**
+      serviceId: duomall-pay-server
