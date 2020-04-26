@@ -4,10 +4,10 @@ create table if not exists address
 (
     `id`           varchar(36)              not null comment '主键id',
     `user_id`      varchar(36)              not null comment '用户id，关联user表',
-    `zip`          int                      not null comment '邮编',
+    `postcode`     int                      not null comment '邮编',
     `province`     varchar(255)             not null comment '省',
     `city`         varchar(255)             not null comment '市',
-    `area`         varchar(255)             not null comment '区',
+    `district`     varchar(255)             not null comment '区',
     `detail`       varchar(255)             not null comment '详细地址',
     `is_default`   boolean    default false not null comment '是否默认,0-不默认,1-默认',
     `status`       tinyint    default 1 comment '0-关闭，1-正常，2-禁用',

@@ -7,7 +7,7 @@ create table if not exists remark
     `target_id`    varchar(36)          not null comment '目标id',
     `type`         int        default 0 not null comment '评价类型,0-商品评论,1-多级评论',
     `tag`          varchar(36) comment '评价标签',
-    `content`      text                 not null comment '评价内容',
+    `content`      varchar(500)         not null comment '评价内容',
     `remark_count` bigint     default 0 not null comment '评价数',
     `like_count`   bigint     default 0 not null comment '点赞数',
     `status`       tinyint    default 1 comment '0-关闭，1-正常，2-禁用',

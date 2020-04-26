@@ -10,7 +10,7 @@
     <id column="id" jdbcType="VARCHAR" property="id" />
     <result column="cellphone" jdbcType="VARCHAR" property="cellphone" />
     <result column="email" jdbcType="VARCHAR" property="email" />
-    <result column="Login_password" jdbcType="VARCHAR" property="loginPassword" />
+    <result column="login_password" jdbcType="VARCHAR" property="loginPassword" />
     <result column="payment_password" jdbcType="CHAR" property="paymentPassword" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="avatar" jdbcType="VARCHAR" property="avatar" />

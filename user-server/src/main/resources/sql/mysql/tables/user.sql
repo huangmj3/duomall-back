@@ -5,7 +5,7 @@ create table if not exists user
     `id`                  varchar(36) not null comment '主键id',
     `cellphone`           varchar(11) not null comment '手机号',
     `email`               varchar(36) comment '邮箱',
-    `Login_password`      varchar(16) not null comment '登录密码',
+    `login_password`      varchar(16) not null comment '登录密码',
     `payment_password`    char(6)     null comment '支付密码',
     `name`                varchar(36) not null comment '昵称',
     `avatar`              varchar(255) default 'https://duomall-avatar.oss-cn-beijing.aliyuncs.com/%E9%BB%98%E8%AE%A4%E5%A4%B4%E5%83%8F.png' comment '头像',
