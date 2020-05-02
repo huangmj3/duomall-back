@@ -93,6 +93,12 @@
             <!--	修改类型映射		-->
             <columnOverride column="status" javaType="Integer"/>
         </table>
+        <table tableName="spike_goods" domainObjectName="SpikeGoods" enableCountByExample="true"
+               enableDeleteByExample="true" enableSelectByExample="true" enableUpdateByExample="true">
+            <!--<generatedKey column="id" sqlStatement="MYSQL" identity="true" type="post"/>-->
+            <!--	修改类型映射		-->
+            <columnOverride column="status" javaType="Integer"/>
+        </table>
         <table tableName="user" domainObjectName="User" enableCountByExample="true"
                enableDeleteByExample="true" enableSelectByExample="true" enableUpdateByExample="true">
             <!--<generatedKey column="id" sqlStatement="MYSQL" identity="true" type="post"/>-->
