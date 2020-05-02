@@ -1,5 +1,5 @@
 server:
-  port: 8806 #运行端口号
+  port: 8805   #运行端口号
 spring:
   application:
     name: duomall-pay-server #服务名称

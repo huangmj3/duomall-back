@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author huangmaojie
  * @date 2020/3/28
  */
-@CrossOrigin
 @RestController
+@CrossOrigin(allowCredentials = "true", maxAge = 3600)
 public class SpikeController {
 }

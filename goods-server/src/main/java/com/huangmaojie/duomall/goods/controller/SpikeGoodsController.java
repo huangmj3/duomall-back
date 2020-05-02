@@ -4,12 +4,13 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * 商品服务控制器
+ * 秒杀商品控制器
  *
  * @author huangmaojie
- * @date 2020/3/28
+ * @date 2020/5/2
  */
-@CrossOrigin
 @RestController
-public class GoodsController {
+@CrossOrigin(allowCredentials = "true", maxAge = 3600)
+public class SpikeGoodsController {
+
 }

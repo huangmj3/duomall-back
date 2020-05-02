@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/label")
-@CrossOrigin
+@CrossOrigin(allowCredentials = "true", maxAge = 3600)
 public class LabelController {
 
     @RequestMapping(method = RequestMethod.GET)

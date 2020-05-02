@@ -8,4 +8,4 @@ rabbitMQ我们主要希望实现的消息队列的"消息存入和消息取出"
 1.选择服务模式：直接模式，分裂模式，主题模式，在这里选择直接模式就可以
 2.设计交换器: registration_verification_code_exchange
 3.设计消息队列： registration_verification_code_queue
-4.routing_key:
+4.routing_key:'''

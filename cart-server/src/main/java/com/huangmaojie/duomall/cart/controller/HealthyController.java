@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/healthy")
-@CrossOrigin
+@CrossOrigin(allowCredentials = "true", maxAge = 3600)
 public class HealthyController {
     @RequestMapping(method = RequestMethod.GET)
     public String test(){

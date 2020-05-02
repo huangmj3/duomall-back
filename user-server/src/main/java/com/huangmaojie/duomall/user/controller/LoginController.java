@@ -24,7 +24,7 @@ import java.util.concurrent.TimeUnit;
 @RestController
 @RequestMapping("/login")
 @CrossOrigin(allowCredentials = "true", maxAge = 3600)
-public class LoginController {
+public class  LoginController {
 
     @Autowired
     private UserService userService;

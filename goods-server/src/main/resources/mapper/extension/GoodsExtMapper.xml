@@ -9,6 +9,7 @@
     -->
     <id column="id" jdbcType="VARCHAR" property="id" />
     <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="intro" jdbcType="VARCHAR" property="intro" />
     <result column="stock" jdbcType="BIGINT" property="stock" />
     <result column="shop_name" jdbcType="VARCHAR" property="shopName" />
     <result column="type" jdbcType="VARCHAR" property="type" />

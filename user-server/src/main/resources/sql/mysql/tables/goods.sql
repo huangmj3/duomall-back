@@ -4,6 +4,7 @@ create table if not exists goods
 (
     `id`               varchar(36)    not null comment '主键id',
     `title`            varchar(36)    not null comment '商品名称',
+#     'intro'            varchar(255)            default '' comment '商品介绍',
     `stock`            bigint(20)     not null comment '商品库存',
     `shop_name`        varchar(36)    not null comment '商品所属店铺名称',
     `type`             varchar(36)    not null comment '商品类型(手机，数码等)',
