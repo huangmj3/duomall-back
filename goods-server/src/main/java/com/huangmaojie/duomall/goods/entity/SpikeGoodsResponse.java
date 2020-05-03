@@ -2,6 +2,8 @@ package com.huangmaojie.duomall.goods.entity;
 
 import lombok.Data;
 
+import java.util.List;
+
 /**
  * 秒杀商品响应实体类
  *
@@ -13,12 +15,21 @@ public class SpikeGoodsResponse {
     /**
      * 秒杀商品概要数据
      */
-    Goods goods;
+    List<Goods> goodsList;
     /**
      * 秒杀商品图片数据
      */
-    GoodsImage goodsImage;
+    List<GoodsImage> goodsImageList;
     /**
-     * 秒杀时间数据
+     * 秒杀小时
      */
+    int spikeHours;
+    /**
+     * 秒杀分钟
+     */
+    int spikeMinutes;
+    /**
+     * 秒杀秒钟
+     */
+    int spikeSeconds;
 }

@@ -17,7 +17,8 @@
     <result column="is_hot" jdbcType="BIT" property="isHot" />
     <result column="tags" jdbcType="VARCHAR" property="tags" />
     <result column="discount" jdbcType="VARCHAR" property="discount" />
-    <result column="price" jdbcType="DECIMAL" property="price" />
+    <result column="original_price" jdbcType="DECIMAL" property="originalPrice" />
+    <result column="discount_price" jdbcType="DECIMAL" property="discountPrice" />
     <result column="sale" jdbcType="BIGINT" property="sale" />
     <result column="promotion" jdbcType="VARCHAR" property="promotion" />
     <result column="params" jdbcType="VARCHAR" property="params" />
