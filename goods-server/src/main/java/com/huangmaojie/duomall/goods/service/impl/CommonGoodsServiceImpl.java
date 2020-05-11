@@ -10,6 +10,9 @@ import com.huangmaojie.duomall.goods.mapper.extension.GoodsExtMapper;
 import com.huangmaojie.duomall.goods.service.CommonGoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
+
+import java.util.List;
 
 /**
  * 通用商品服务类
@@ -74,5 +77,49 @@ public class CommonGoodsServiceImpl implements CommonGoodsService {
         example.createCriteria()
                 .andGoodsIdEqualTo(goodsId);
         return goodsSetMealMapper.selectByExample(example).get(0);
+    }
+
+    @Override
+    public Goods getGoodsById(String goodsId) {
+        return goodsMapper.selectByPrimaryKey(goodsId);
+    }
+
+    @Override
+    public GoodsImage getGoodsImageByGoodsId(String goodsId) {
+        GoodsImageExample goodsImageExample = new GoodsImageExample();
+        goodsImageExample.createCriteria()
+                .andGoodsIdEqualTo(goodsId);
+        List<GoodsImage> goodsImages = goodsImageMapper.selectByExample(goodsImageExample);
+        if(CollectionUtils.isEmpty(goodsImages)){
+            return null;
+        }else {
+            return goodsImages.get(0);
+        }
+    }
+
+    @Override
+    public GoodsParam getGoodsParamByGoodsId(String goodsId) {
+        GoodsParamExample goodsParamExample= new GoodsParamExample();
+        goodsParamExample.createCriteria()
+                .andGoodsIdEqualTo(goodsId);
+        List<GoodsParam> goodsParams = goodsParamMapper.selectByExample(goodsParamExample);
+        if(CollectionUtils.isEmpty(goodsParams)){
+            return null;
+        }else {
+            return goodsParams.get(0);
+        }
+    }
+
+    @Override
+    public GoodsSetMeal getGoodsSetMealByGoodsId(String goodsId) {
+        GoodsSetMealExample goodsSetMealExample = new GoodsSetMealExample();
+        goodsSetMealExample.createCriteria()
+                .andGoodsIdEqualTo(goodsId);
+        List<GoodsSetMeal> goodsSetMeals = goodsSetMealMapper.selectByExample(goodsSetMealExample);
+        if(CollectionUtils.isEmpty(goodsSetMeals)){
+            return null;
+        }else {
+            return goodsSetMeals.get(0);
+        }
     }
 }

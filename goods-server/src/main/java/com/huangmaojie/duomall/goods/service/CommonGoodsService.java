@@ -23,7 +23,7 @@ public interface CommonGoodsService {
      * @param key 关键词
      * @return 寻找结果
      */
-    public Page<Goods> findGoodsByKey(@NotEmpty String key);
+    Page<Goods> findGoodsByKey(@NotEmpty String key);
 
     /**
      * 根据商品id查找商品概要信息
@@ -31,7 +31,7 @@ public interface CommonGoodsService {
      * @param id 商品id
      * @return 商品概要信息
      */
-    public Goods findGoodsById(@NotEmpty String id);
+    Goods findGoodsById(@NotEmpty String id);
 
     /**
      * 根据商品id查找商品图片信息
@@ -39,7 +39,7 @@ public interface CommonGoodsService {
      * @param goodsId 商品id
      * @return 商品图片信息
      */
-    public GoodsImage findGoodsImageByGoodsId(@NotEmpty String goodsId);
+    GoodsImage findGoodsImageByGoodsId(@NotEmpty String goodsId);
 
     /**
      * 根据商品id寻找商品参数信息
@@ -47,7 +47,7 @@ public interface CommonGoodsService {
      * @param goodsId 商品id
      * @return 商品参数信息
      */
-    public GoodsParam findGoodsParamByGoodsId(@NotEmpty String goodsId);
+    GoodsParam findGoodsParamByGoodsId(@NotEmpty String goodsId);
 
     /**
      * 根据商品id寻找商品套餐信息
@@ -55,6 +55,37 @@ public interface CommonGoodsService {
      * @param goodsId 商品id
      * @return 商品套餐信息
      */
-    public GoodsSetMeal findGoodsSetMealByGoodsId(@NotEmpty String goodsId);
+    GoodsSetMeal findGoodsSetMealByGoodsId(@NotEmpty String goodsId);
 
+    /**
+     * 根据商品id查询商品概要信息
+     *
+     * @param goodsId
+     * @return 商品概要信息
+     */
+    Goods getGoodsById(String goodsId);
+
+    /**
+     * 根据商品id查询商品图片信息
+     *
+     * @param goodsId
+     * @return 商品图片信息
+     */
+    GoodsImage getGoodsImageByGoodsId(String goodsId);
+
+    /**
+     * 根据商品id查询商品参数信息
+     *
+     * @param goodsId
+     * @return 商品参数信息
+     */
+    GoodsParam getGoodsParamByGoodsId(String goodsId);
+
+    /**
+     * 根据商品id查询商品套餐信息
+     *
+     * @param goodsId
+     * @return 商品套餐信息
+     */
+    GoodsSetMeal getGoodsSetMealByGoodsId(String goodsId);
 }
