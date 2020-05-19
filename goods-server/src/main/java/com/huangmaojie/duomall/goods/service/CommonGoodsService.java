@@ -19,13 +19,6 @@ import javax.validation.constraints.NotEmpty;
 public interface CommonGoodsService {
 
     /**
-     * 根绝关键词寻找商品
-     * @param key 关键词
-     * @return 寻找结果
-     */
-    Page<Goods> findGoodsByKey(@NotEmpty String key);
-
-    /**
      * 根据商品id查找商品概要信息
      *
      * @param id 商品id
@@ -88,4 +81,20 @@ public interface CommonGoodsService {
      * @return 商品套餐信息
      */
     GoodsSetMeal getGoodsSetMealByGoodsId(String goodsId);
+
+    /**
+     * 根绝关键词搜索商品
+     *
+     * @param key 关键词
+     * @return 搜索结果
+     */
+    Page<Goods> findGoodsByKey(@NotEmpty String key);
+
+    /**
+     *根据商品类型搜索商品
+     *
+     * @param type 商品类型
+     * @return 搜索结果
+     */
+    Page<Goods> findGoodsByType(@NotEmpty String type);
 }

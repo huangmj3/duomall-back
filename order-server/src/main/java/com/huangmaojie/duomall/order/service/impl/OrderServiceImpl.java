@@ -7,6 +7,7 @@ import com.huangmaojie.duomall.order.mapper.OrderInformationMapper;
 import com.huangmaojie.duomall.order.mapper.extension.OrderInformationExtMapper;
 import com.huangmaojie.duomall.order.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  * 订单服务实现类
@@ -14,11 +15,11 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @author huangmaojie
  * @date 2020/3/28
  */
-//@Service
+@Service
 public class OrderServiceImpl implements OrderService {
 
     @Autowired
-    private OrderInformationMapper orderMapper;
+    private OrderInformationMapper orderInformationMapper;
 
     @Autowired
     private OrderInformationExtMapper orderInformationExtMapper;
@@ -29,7 +30,7 @@ public class OrderServiceImpl implements OrderService {
      */
     @Override
     public void addOrder(OrderInformation order){
-        orderMapper.insert(order);
+        orderInformationMapper.insert(order);
     }
 
     /**
@@ -42,7 +43,7 @@ public class OrderServiceImpl implements OrderService {
         orderExample.createCriteria()
             .andIdEqualTo(order.getId());
         order.setId(null);
-        orderMapper.updateByExampleSelective(order,orderExample);
+        orderInformationMapper.updateByExampleSelective(order,orderExample);
     }
 
     /**
@@ -51,19 +52,19 @@ public class OrderServiceImpl implements OrderService {
      */
     @Override
     public void deleteOrder(String orderId){
-        orderMapper.deleteByPrimaryKey(orderId);
+        orderInformationMapper.deleteByPrimaryKey(orderId);
     }
 
     /**
      * 根据用户id，查找全部订单
-     * @param uid 用户id
+     * @param userId 用户id
      * @return 带有分页的订单信息
      */
     @Override
-    public PageInfo<OrderInformation> selectOrderByUid(String uid){
+    public PageInfo<OrderInformation> selectOrderByUserId(String userId){
         OrderInformationExample orderExample = new OrderInformationExample();
         orderExample.createCriteria()
-                .andUserIdEqualTo(uid);
+                .andUserIdEqualTo(userId);
         PageInfo<OrderInformation> orderInfo = new PageInfo<>(orderInformationExtMapper.selectByExample(orderExample));
         return orderInfo;
     }

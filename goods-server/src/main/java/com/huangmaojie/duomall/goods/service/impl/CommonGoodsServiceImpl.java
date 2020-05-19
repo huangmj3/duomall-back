@@ -38,18 +38,6 @@ public class CommonGoodsServiceImpl implements CommonGoodsService {
     @Autowired(required = false)
     private GoodsExtMapper goodsExtMapper;
 
-    /**
-     * 根据关键词查找商品
-     */
-    @Override
-    public Page<Goods> findGoodsByKey(String key) {
-        GoodsExample goodsExample = new GoodsExample();
-        goodsExample.createCriteria()
-                .andTitleEqualTo("%" + key + "%");
-        Page<Goods> foundGoods = goodsExtMapper.selectByExample(goodsExample);
-        return foundGoods;
-    }
-
     @Override
     public Goods findGoodsById(String id) {
         return goodsMapper.selectByPrimaryKey(id);
@@ -90,22 +78,22 @@ public class CommonGoodsServiceImpl implements CommonGoodsService {
         goodsImageExample.createCriteria()
                 .andGoodsIdEqualTo(goodsId);
         List<GoodsImage> goodsImages = goodsImageMapper.selectByExample(goodsImageExample);
-        if(CollectionUtils.isEmpty(goodsImages)){
+        if (CollectionUtils.isEmpty(goodsImages)) {
             return null;
-        }else {
+        } else {
             return goodsImages.get(0);
         }
     }
 
     @Override
     public GoodsParam getGoodsParamByGoodsId(String goodsId) {
-        GoodsParamExample goodsParamExample= new GoodsParamExample();
+        GoodsParamExample goodsParamExample = new GoodsParamExample();
         goodsParamExample.createCriteria()
                 .andGoodsIdEqualTo(goodsId);
         List<GoodsParam> goodsParams = goodsParamMapper.selectByExample(goodsParamExample);
-        if(CollectionUtils.isEmpty(goodsParams)){
+        if (CollectionUtils.isEmpty(goodsParams)) {
             return null;
-        }else {
+        } else {
             return goodsParams.get(0);
         }
     }
@@ -116,10 +104,34 @@ public class CommonGoodsServiceImpl implements CommonGoodsService {
         goodsSetMealExample.createCriteria()
                 .andGoodsIdEqualTo(goodsId);
         List<GoodsSetMeal> goodsSetMeals = goodsSetMealMapper.selectByExample(goodsSetMealExample);
-        if(CollectionUtils.isEmpty(goodsSetMeals)){
+        if (CollectionUtils.isEmpty(goodsSetMeals)) {
             return null;
-        }else {
+        } else {
             return goodsSetMeals.get(0);
         }
+    }
+
+    /**
+     * 根据关键词查找商品
+     */
+    @Override
+    public Page<Goods> findGoodsByKey(String key) {
+        GoodsExample goodsExample = new GoodsExample();
+        goodsExample.createCriteria()
+                .andTitleLike(key);
+        Page<Goods> goods = goodsExtMapper.selectByExample(goodsExample);
+        return goods;
+    }
+
+    /**
+     * 根据商品类型查找商品
+     */
+    @Override
+    public Page<Goods> findGoodsByType(String type) {
+        GoodsExample goodsExample = new GoodsExample();
+        goodsExample.or()
+                .andTypeLike(type);
+        Page<Goods> goods = goodsExtMapper.selectByExample(goodsExample);
+        return goods;
     }
 }

@@ -10,11 +10,32 @@ import com.huangmaojie.duomall.order.entity.OrderInformation;
  * @date 2020/3/28
  */
 public interface OrderService {
-    void addOrder(OrderInformation order);
+    /**
+     * 新增订单
+     *
+     * @param orderInformation 订单数据
+     */
+    void addOrder(OrderInformation orderInformation);
 
-    void updateOrder(OrderInformation order);
+    /**
+     * 修改订单信息
+     *
+     * @param orderInformation 订单数据
+     */
+    void updateOrder(OrderInformation orderInformation);
 
+    /**
+     * 删除订单
+     *
+     * @param orderId 订单id
+     */
     void deleteOrder(String orderId);
 
-    PageInfo<OrderInformation> selectOrderByUid(String uid);
+    /**
+     * 根据用户id查询全部订单信息
+     *
+     * @param userId 用户id
+     * @return 带分页信息的订单信息列表
+     */
+    PageInfo<OrderInformation> selectOrderByUserId(String userId);
 }

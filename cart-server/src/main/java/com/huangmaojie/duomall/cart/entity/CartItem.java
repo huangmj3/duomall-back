@@ -1,17 +1,20 @@
 package com.huangmaojie.duomall.cart.entity;
 
 import com.github.pagehelper.PageInfo;
+import lombok.Builder;
 import lombok.Data;
 
+import java.math.BigDecimal;
+
 /**
- * 购物车信息查询返回类
+ * 购物车内单个商品信息类
  *
  * @author huangmaojie
  * @date 2020/5/10
  */
 
 @Data
-public class CartResponse {
+public class CartItem {
 
     /**
      * 商品id
@@ -26,7 +29,7 @@ public class CartResponse {
     /**
      * 商品数量
      */
-    String goodsNum;
+    Integer goodsNum;
 
     /**
      * 商品图片
@@ -36,7 +39,7 @@ public class CartResponse {
     /**
      * 商品实际单价
      */
-    String goodsPrice;
+    BigDecimal goodsPrice;
 
     /**
      * 商品套餐介绍

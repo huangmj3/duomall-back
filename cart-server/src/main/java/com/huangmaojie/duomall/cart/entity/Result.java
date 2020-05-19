@@ -1,5 +1,8 @@
 package com.huangmaojie.duomall.cart.entity;
 
+import lombok.Builder;
+
+@Builder
 public class Result {
     private boolean success;
     private Integer code;

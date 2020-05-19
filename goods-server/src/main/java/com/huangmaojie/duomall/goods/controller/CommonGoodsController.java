@@ -5,7 +5,6 @@ import com.huangmaojie.duomall.goods.entity.GoodsImage;
 import com.huangmaojie.duomall.goods.entity.GoodsParam;
 import com.huangmaojie.duomall.goods.entity.GoodsSetMeal;
 import com.huangmaojie.duomall.goods.service.CommonGoodsService;
-import com.netflix.discovery.converters.Auto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,12 +15,20 @@ import org.springframework.web.bind.annotation.*;
  * @date 2020/5/3
  */
 @RestController
-@RequestMapping("/commonGoods")
+    @RequestMapping("/commonGoods")
 @CrossOrigin(allowCredentials = "true", maxAge = 3600)
 public class CommonGoodsController {
 
     @Autowired
     private CommonGoodsService commonGoodsService;
+
+    /**
+     * commonGoods类方法可用性测试用
+     */
+    @RequestMapping(value = "/test", method = RequestMethod.GET)
+    public String commonGoodsTest(@RequestParam(value = "param") String param) {
+        return "commonGoods测试成功" + ",接收到的param是:" + param;
+    }
 
     /**
      * 根据goodsId进行商品概要信息查询
