@@ -8,7 +8,7 @@ spring:
     # 连接池类型，druid连接池springboot暂无法默认支持，需要自己配置bean
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://139.129.12.201:3306/duomall?serverTimezone=Hongkong
+    url: jdbc:mysql://118.31.102.181:3306/duomall?serverTimezone=Hongkong
     username: root
     password: root
     # druid相关配置
@@ -72,7 +72,7 @@ eureka:
   client:
     service-url:
 #      defaultZone: http://127.0.0.1:8705/eureka/
-      defaultZone: http://139.129.12.201:8704/eureka/
+      defaultZone: http://118.31.102.181:8704/eureka/
 pagehelper:
   helperDialect: mysql
   reasonable: true

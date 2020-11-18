@@ -1,6 +1,7 @@
 package com.huangmaojie.duomall.goods.service.impl;
 
 import com.github.pagehelper.Page;
+import com.github.pagehelper.PageInfo;
 import com.huangmaojie.duomall.goods.entity.*;
 import com.huangmaojie.duomall.goods.mapper.GoodsImageMapper;
 import com.huangmaojie.duomall.goods.mapper.GoodsMapper;
@@ -12,6 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
+import javax.validation.constraints.NotEmpty;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -39,41 +42,12 @@ public class CommonGoodsServiceImpl implements CommonGoodsService {
     private GoodsExtMapper goodsExtMapper;
 
     @Override
-    public Goods findGoodsById(String id) {
-        return goodsMapper.selectByPrimaryKey(id);
-    }
-
-    @Override
-    public GoodsImage findGoodsImageByGoodsId(String goodsId) {
-        GoodsImageExample example = new GoodsImageExample();
-        example.createCriteria()
-                .andGoodsIdEqualTo(goodsId);
-        return goodsImageMapper.selectByExample(example).get(0);
-    }
-
-    @Override
-    public GoodsParam findGoodsParamByGoodsId(String goodsId) {
-        GoodsParamExample example = new GoodsParamExample();
-        example.createCriteria()
-                .andGoodsIdEqualTo(goodsId);
-        return goodsParamMapper.selectByExample(example).get(0);
-    }
-
-    @Override
-    public GoodsSetMeal findGoodsSetMealByGoodsId(String goodsId) {
-        GoodsSetMealExample example = new GoodsSetMealExample();
-        example.createCriteria()
-                .andGoodsIdEqualTo(goodsId);
-        return goodsSetMealMapper.selectByExample(example).get(0);
-    }
-
-    @Override
-    public Goods getGoodsById(String goodsId) {
+    public Goods findGoodsById(String goodsId) {
         return goodsMapper.selectByPrimaryKey(goodsId);
     }
 
     @Override
-    public GoodsImage getGoodsImageByGoodsId(String goodsId) {
+    public List<GoodsImage> findGoodsImageByGoodsId(String goodsId) {
         GoodsImageExample goodsImageExample = new GoodsImageExample();
         goodsImageExample.createCriteria()
                 .andGoodsIdEqualTo(goodsId);
@@ -81,12 +55,12 @@ public class CommonGoodsServiceImpl implements CommonGoodsService {
         if (CollectionUtils.isEmpty(goodsImages)) {
             return null;
         } else {
-            return goodsImages.get(0);
+            return goodsImages;
         }
     }
 
     @Override
-    public GoodsParam getGoodsParamByGoodsId(String goodsId) {
+    public List<GoodsParam> findGoodsParamByGoodsId(String goodsId) {
         GoodsParamExample goodsParamExample = new GoodsParamExample();
         goodsParamExample.createCriteria()
                 .andGoodsIdEqualTo(goodsId);
@@ -94,12 +68,12 @@ public class CommonGoodsServiceImpl implements CommonGoodsService {
         if (CollectionUtils.isEmpty(goodsParams)) {
             return null;
         } else {
-            return goodsParams.get(0);
+            return goodsParams;
         }
     }
 
     @Override
-    public GoodsSetMeal getGoodsSetMealByGoodsId(String goodsId) {
+    public List<GoodsSetMeal> findGoodsSetMealByGoodsId(String goodsId) {
         GoodsSetMealExample goodsSetMealExample = new GoodsSetMealExample();
         goodsSetMealExample.createCriteria()
                 .andGoodsIdEqualTo(goodsId);
@@ -107,7 +81,7 @@ public class CommonGoodsServiceImpl implements CommonGoodsService {
         if (CollectionUtils.isEmpty(goodsSetMeals)) {
             return null;
         } else {
-            return goodsSetMeals.get(0);
+            return goodsSetMeals;
         }
     }
 
@@ -133,5 +107,29 @@ public class CommonGoodsServiceImpl implements CommonGoodsService {
                 .andTypeLike(type);
         Page<Goods> goods = goodsExtMapper.selectByExample(goodsExample);
         return goods;
+    }
+
+    @Override
+    public CommonGoodsResponse findAllInfo(PageInfo<Goods> goodsList) {
+        CommonGoodsResponse response = new CommonGoodsResponse();
+
+        List<List<GoodsImage>> goodsImageList = new ArrayList<>();
+        List<List<GoodsParam>> goodsParamList = new ArrayList<>();
+        List<List<GoodsSetMeal>> goodsSetMealList = new ArrayList<>();
+
+        for (int i = 0; i < goodsList.getList().size(); i++) {
+            String goodsId = goodsList.getList().get(i).getId();
+            List<GoodsImage> goodsImage = this.findGoodsImageByGoodsId(goodsId);
+            goodsImageList.add(goodsImage);
+            List<GoodsParam> goodsParam = this.findGoodsParamByGoodsId(goodsId);
+            goodsParamList.add(goodsParam);
+            List<GoodsSetMeal> goodsSetMeal = this.findGoodsSetMealByGoodsId(goodsId);
+            goodsSetMealList.add(goodsSetMeal);
+        }
+        response.setGoodsList(goodsList);
+        response.setGoodsImageList(goodsImageList);
+        response.setGoodsParamList(goodsParamList);
+        response.setGoodsSetMealList(goodsSetMealList);
+        return response;
     }
 }

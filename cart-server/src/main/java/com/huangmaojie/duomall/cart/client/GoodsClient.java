@@ -9,13 +9,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
+
 /**
  * goods微服务feign调用客户端
  *
  * @author huangmaojie
  * @date 2020/5/11
  */
-@FeignClient(value = "duomall-goods-server")
+@FeignClient(value = "duomall-goods-server",fallback = BaseClientImpl.class)
 public interface GoodsClient {
 
     /**
@@ -27,8 +29,7 @@ public interface GoodsClient {
     /**
      * commonGoods类方法测试用
      */
-//    @RequestMapping(method = RequestMethod.GET, path = "commonGoods/test")
-    @RequestMapping(value = "commonGoods/test",method = RequestMethod.GET)
+       @RequestMapping(value = "commonGoods/test",method = RequestMethod.GET)
     String commonGoodsTest(@RequestParam("param") String param);
 
     /**
@@ -41,17 +42,17 @@ public interface GoodsClient {
      * 根据goodsId进行商品图片信息查询
      */
     @RequestMapping(value = "/commonGoods/getGoodsImage", method = RequestMethod.GET)
-    GoodsImage getGoodsImageByGoodsId(@RequestParam("goodsId") String goodsId);
+    List<GoodsImage> getGoodsImageByGoodsId(@RequestParam("goodsId") String goodsId);
 
     /**
      * 根据goodsId进行商品参数信息查询
      */
     @RequestMapping(value = "/commonGoods/getGoodsParam", method = RequestMethod.GET)
-    GoodsParam getGoodsParamByGoodsId(@RequestParam("goodsId") String goodsId);
+    List<GoodsParam> getGoodsParamByGoodsId(@RequestParam("goodsId") String goodsId);
 
     /**
      * 根据goodsId进行商品套餐信息查询
      */
     @RequestMapping(value = "/commonGoods/getGoodsSetMeal", method = RequestMethod.GET)
-    GoodsSetMeal getGoodsSetMealByGoodsId(@RequestParam("goodsId") String goodsId);
+    List<GoodsSetMeal> getGoodsSetMealByGoodsId(@RequestParam("goodsId") String goodsId);
 }

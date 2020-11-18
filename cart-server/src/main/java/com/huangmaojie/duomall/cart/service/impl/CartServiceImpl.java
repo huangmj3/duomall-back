@@ -97,8 +97,8 @@ public class CartServiceImpl implements CartService {
         for (int i = 0; i < goodsIds.size(); i++) {
             CartItem cartItem = new CartItem();
             Goods goods = goodsClient.getGoodsById(goodsIds.get(i));
-            GoodsImage goodsImage = goodsClient.getGoodsImageByGoodsId(goodsIds.get(i));
-            GoodsSetMeal goodsSetMeal = goodsClient.getGoodsSetMealByGoodsId(goodsIds.get(i));
+            GoodsImage goodsImage = goodsClient.getGoodsImageByGoodsId(goodsIds.get(i)).get(0);
+            GoodsSetMeal goodsSetMeal = goodsClient.getGoodsSetMealByGoodsId(goodsIds.get(i)).get(0);
             cartItem.setGoodsId(goodsIds.get(i));
             cartItem.setGoodsTitle(goods.getTitle());
             cartItem.setGoodsNum(goodsNums.get(i));

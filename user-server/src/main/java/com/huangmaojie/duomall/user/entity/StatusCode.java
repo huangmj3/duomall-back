@@ -8,4 +8,6 @@ public class StatusCode {
     public static final int REMOTE_ERROR = 20004;//远程调用失败
     public static final int REPEAT_ERROR = 20005;//重复操作
     public static final int CELLPHONE_EXITS = 20006;
+    public static final int NO_CAPTCHA_EXIST = 20007;//验证码未发送，或验证码过期
+    public static final int CAPTCHA_ERROR = 20008;//验证码错误
 }

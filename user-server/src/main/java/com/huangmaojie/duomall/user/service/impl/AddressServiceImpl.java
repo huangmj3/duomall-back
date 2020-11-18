@@ -1,5 +1,6 @@
 package com.huangmaojie.duomall.user.service.impl;
 
+import com.github.pagehelper.Page;
 import com.github.pagehelper.PageInfo;
 import com.huangmaojie.duomall.user.entity.Address;
 import com.huangmaojie.duomall.user.entity.AddressExample;
@@ -18,10 +19,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class AddressServiceImpl implements AddressService {
 
-    @Autowired
+    @Autowired(required = false)
     private AddressMapper addressMapper;
 
-    @Autowired
+    @Autowired(required = false)
     private AddressExtMapper addressExtMapper;
 
     /**
@@ -65,7 +66,8 @@ public class AddressServiceImpl implements AddressService {
         AddressExample addressExample = new AddressExample();
         addressExample.createCriteria()
                 .andUserIdEqualTo(userId);
-        PageInfo<Address> addressInfo = new PageInfo<>(addressExtMapper.selectByExample(addressExample));
+        Page page = addressExtMapper.selectByExample(addressExample);
+        PageInfo<Address> addressInfo = new PageInfo<>(page);
         return addressInfo;
     }
 }

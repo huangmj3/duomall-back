@@ -23,6 +23,6 @@ eureka:
   #    non-secure-port: 8701
   client:
     service-url:
-      defaultZone: http://139.129.12.201:8704/eureka/
+      defaultZone: http://118.31.102.181:8704/eureka/
 
 

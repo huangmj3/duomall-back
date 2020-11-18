@@ -18,4 +18,9 @@ public interface SpikeGoodsService {
      *
      */
     List<SpikeGoods> getSpikeGoods();
+
+    /**
+     * 修改秒杀商品数量信息
+     */
+    void updateSpikeGoodsNum(String goodsId, int goodsNum);
 }

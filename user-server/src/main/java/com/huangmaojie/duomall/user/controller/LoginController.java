@@ -48,6 +48,7 @@ public class  LoginController {
             String name = MapUtils.getString(validationResults, Constraints.NAME);
             //生成token给客户端，并临时存储到Redis中
             String token = jwtUtil.createJWT(userId, cellphone, "normalUser");
+            date.put(Constraints.USER_ID, userId);
             date.put(Constraints.NAME, name);
             date.put(Constraints.TOKEN, token);
             //存入redis中并设置过期时间

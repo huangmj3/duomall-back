@@ -34,4 +34,12 @@ public class SpikeGoodsServiceImpl implements SpikeGoodsService {
     public List<SpikeGoods> getSpikeGoods() {
         return spikeGoodsExtMapper.selectAll();
     }
+
+    /**
+     * 修改秒杀商品数量信息
+     */
+    @Override
+    public void updateSpikeGoodsNum(String goodsId, int goodsNum) {
+
+    }
 }

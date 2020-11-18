@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.huangmaojie.duomall</groupId>
 	<artifactId>gateway</artifactId>
-	<version>0.0.2-SNAPSHOT</version>
+	<version>0.0.3-SNAPSHOT</version>
 
 	<properties>
 		<java.version>1.8</java.version>
@@ -76,7 +76,7 @@
 							<include>${project.build.finalName}.jar</include>
 						</resource>
 					</resources>
-					<dockerHost>http://139.129.12.201:2375</dockerHost>
+					<dockerHost>http://118.31.102.181:2375</dockerHost>
 				</configuration>
 			</plugin>
 		</plugins>

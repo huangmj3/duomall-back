@@ -14,7 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/healthy")
 @CrossOrigin
-public class HealthyController {
+public class
+HealthyController {
     @RequestMapping(method = RequestMethod.GET)
     public String test(){
         return "健康";

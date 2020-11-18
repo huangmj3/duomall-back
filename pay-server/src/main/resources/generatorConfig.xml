@@ -20,7 +20,7 @@
         <!--		 <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin" />-->
 
         <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
-                        connectionURL="jdbc:mysql://139.129.12.201:3306/duomall"
+                        connectionURL="jdbc:mysql://118.31.102.181:3306/duomall"
                         userId="root"
                         password="root">
             <property name="nullCatalogMeansCurrent" value="true"/>
