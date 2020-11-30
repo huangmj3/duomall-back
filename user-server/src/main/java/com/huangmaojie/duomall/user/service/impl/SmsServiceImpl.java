@@ -22,7 +22,8 @@ public class SmsServiceImpl implements SmsService {
 
     @Override
     public void sendSms(String cellphone, String code) {
-        DefaultProfile profile = DefaultProfile.getProfile("cn-hangzhou", "LTAI4FndcX9H4nT5sBoc4Pat", "kuh12LNgGfqM8Pnvdjxpllu8031mN6");
+        //自己的阿里云内容
+        DefaultProfile profile = DefaultProfile.getProfile("cn-hangzhou", "", "");
         IAcsClient client = new DefaultAcsClient(profile);
 
         CommonRequest request = new CommonRequest();

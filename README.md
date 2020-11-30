@@ -5,6 +5,7 @@
 + Spring Cloud Config
 ## 网关微服务
 + Nginx
++ Zuul
 ## 支付微服务
 + 预计支付宝API（暂未完成）
 ## 购物车微服务
